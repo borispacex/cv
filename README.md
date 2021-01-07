@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Deploy
 
-ng build --prod --baseHref=” https://borisvargas.github.io/cv/”
+ng build --prod=true --outputPath=docs --baseHref=https://borisvargas.github.io/cv/

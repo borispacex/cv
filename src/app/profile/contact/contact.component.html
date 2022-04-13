@@ -44,9 +44,9 @@
                         <div class="row mb-3">
                           <div class="col">
                             <div class="form-group">
-                              <textarea class="form-control" name="message" #message placeholder="Tu Mensaje"
+                              <input class="form-control" name="message" #message placeholder="Tu Mensaje"
                                 [(ngModel)]="model.message" #message="ngModel"
-                                [ngClass]="{ 'is-invalid': f.submitted && message.invalid }" required></textarea>
+                                [ngClass]="{ 'is-invalid': f.submitted && message.invalid }" required>
                             </div>
                           </div>
                         </div>

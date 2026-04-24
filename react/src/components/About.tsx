@@ -1,32 +1,26 @@
 import React, {ReactNode} from 'react';
 import { motion } from 'framer-motion';
-import {Award, Briefcase, Code, GraduationCap, Mail, MapPin, Phone} from 'lucide-react';
+import {Mail, MapPin, Phone} from 'lucide-react';
 import SectionHeading from './SectionHeading';
 
-type Stat = {
-  icon: ReactNode;
-  label: string;
+type ContactItem = {
+  icon: React.ReactNode;
+  title: string;
   value: string;
+  link: string;
 };
 
 type AboutData = {
   image: string;
   description: string;
   bio?: string;
-  stats: Stat[];
-  contactInfo:any[];
+  contactInfo:ContactItem[];
 };
 
 const About = () => {
   const aboutData: AboutData = {
     image: "/image/profile.jpg",
     description: `Desarrollador Full Stack con experiencia en proyectos de alto impacto en el sector público y financiero, especializado en microservicios, APIs y desarrollo web moderno. Manejo tecnologías como Java, Spring Boot, Angular, .NET y PostgreSQL, además de herramientas DevOps como Docker y Jenkins. Destaco por mi capacidad de adaptación, resolución de problemas y enfoque en la entrega de soluciones escalables y eficientes.`,
-    stats: [
-      { icon: <Code size={20} />, label: "Proyectos finalizados", value: "20+" },
-      { icon: <Briefcase size={20} />, label: "Años de experiencia", value: "4+" },
-      { icon: <Award size={20} />, label: "Clientes satisfechos", value: "10+" },
-      { icon: <GraduationCap size={20} />, label: "Cursos", value: "38+" },
-    ],
     contactInfo: [
       {
         icon: <Mail size={24} />,

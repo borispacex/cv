@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Education from './components/Education';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -55,7 +56,7 @@ function App() {
     <div className="relative min-h-screen">
       {showCursor && <CustomCursor />}
       
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed z-50 bottom-6 right-6">
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       </div>
       
@@ -66,6 +67,7 @@ function App() {
           <Hero />
           <About />
           <Skills />
+          <Education />
           <Projects />
           <Experience />
           <Contact />

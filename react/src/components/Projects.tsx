@@ -4,13 +4,15 @@ import { ArrowRight, ExternalLink, Github, Maximize } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import ProjectModal from './ProjectModal';
 
+type Category = 'all' | 'articles' | 'web' | 'api';
+
 interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
   tags: string[];
-  category: string;
+  category: Exclude<Category, 'all'>;
   demoLink: string;
   githubLink: string;
   details: string;
@@ -18,13 +20,13 @@ interface Project {
 }
 
 const Projects = () => {
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState<Category>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
-  const categories = [
-    { id: 'all', name: 'Todos los proyectos' },
+  const categories: {id: Category; name: string;}[] = [
+    { id: 'all', name: 'Todos' },
     { id: 'articles', name: 'Artículos' },
-    { id: 'web', name: 'Aplicaciones web' },
+    { id: 'web', name: 'Web' },
     { id: 'api', name: 'API' },
  
   ];
@@ -32,175 +34,99 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "InventorySystem ",
-      description: "A responsive admin dashboard for managing products, orders, and customers.",
-      image: "https://t4.ftcdn.net/jpg/05/50/14/63/360_F_550146337_826DHUXoFx18MRTMUauX3fyRw9R7S1BO.jpg",
-      tags: ["Laravel", "Mysql", "JQuery", "Tailwind"],
-      category: "web",
-      demoLink: "https://github.com/alawoddin/InventorySystem",
-      githubLink: "https://github.com/alawoddin/InventorySystem",
-      details: "A comprehensive e-commerce dashboard with real-time analytics, inventory management, and order processing capabilities. Built with performance and scalability in mind.",
+      title: "Instalación Debian + Zurg",
+      description: "Guía completa para instalar y configurar Debian junto con Zurg para gestión y automatización de servicios.",
+      image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*NXy_nc-cHrecaS4vdwbRcQ.png",
+      tags: ["Debian", "Linux", "Zurg", "DevOps", "Docker"],
+      category: "articles",
+      demoLink: "https://medium.com/@borisvargas/instalaci%C3%B3n-debian-zurg-abbe3d608cf3",
+      githubLink: "https://github.com/borispacex",
+      details: "Tutorial paso a paso para la instalación de Debian y la configuración de Zurg, orientado a entornos de automatización y despliegue. Incluye preparación del sistema, instalación de dependencias y puesta en marcha de servicios.",
       features: [
-        "Real-time sales analytics and reporting",
-        "Inventory management system",
-        "Customer relationship management",
-        "Order processing and tracking",
-        "User authentication and role-based access control"
+        "Instalación limpia de Debian",
+        "Configuración inicial del sistema",
+        "Instalación y configuración de Zurg",
+        "Automatización de servicios",
+        "Optimización para entornos productivos"
       ]
     },
     {
       id: 2,
-      title: "studentproject",
-      description: "A beautiful studentproject Software with interactive maps and custom animations.",
-      image: "https://www.gettingsmart.com/wp-content/uploads/2016/09/PBWorld-students-Feature-Image.jpg",
-      tags: ["Vue.js", "laravel", "mysql", "javascript"],
-      category: "web",
-      demoLink: "https://example.com",
-      githubLink: "https://github.com/alawoddin/studentproject",
-      details: "A modern studentproject platform with interactive maps, immersive experiences, and smooth animations. The platform allows users to discover destinations, compare prices, and book accommodations.",
+      title: "Google Cloud Compute Engine + NIC-BO",
+      description: "Implementación y configuración de instancias en Google Cloud con manejo avanzado de interfaces de red (NIC) en entornos VPC.",
+      image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*-lPpk2pin6HSJBoexy05pA.jpeg",
+      tags: ["Google Cloud", "Compute Engine", "Networking", "VPC", "DevOps"],
+      category: "articles",
+      demoLink: "https://medium.com/@borispacex/google-cloud-compute-engine-y-nic-bo-79d8e0a3aad9",
+      githubLink: "https://github.com/borispacex",
+      details: "Guía práctica para la creación y configuración de máquinas virtuales en Google Cloud Compute Engine, incluyendo la gestión de interfaces de red (NIC), configuración de VPC y segmentación de tráfico. Orientado a escenarios reales de infraestructura cloud y networking.",
       features: [
-        "Interactive maps with custom markers",
-        "Destination search and filtering",
-        "Availability calendar with real-time updates",
-        "studentproject management system",
-        "Payment integration with multiple providers"
+        "Creación de instancias en Compute Engine",
+        "Configuración de redes VPC",
+        "Gestión de interfaces de red (NIC)",
+        "Segmentación de tráfico entre redes",
+        "Optimización de rendimiento de red en la nube"
       ]
     },
-    {
-      id: 3,
-      title: "cars-wash-with-laravel",
-      description: "A comprehensive cars-wash-with-laravel for finance applications with 50+ components.",
-      image: "https://media.istockphoto.com/id/1429577234/photo/a-vehicle-in-an-automatic-car-wash.jpg?s=612x612&w=0&k=20&c=6dHnpcYASNnH2TpGBuR3vSB9w6tASzrjakjQl3wDUqw=",
-      tags: ["Figma", "Design System", "laravel" , "mysql" , "javascript"],
-      category: "web",
-      demoLink: "https://github.com/alawoddin/cars-wash-with-laravel",
-      githubLink: "https://github.com/alawoddin/cars-wash-with-laravel",
-      details: "A comprehensive UI kit specifically designed for financial applications and dashboards. The kit includes over 50 reusable components with various states and variations.",
-      features: [
-        "50+ reusable components",
-        "Dark and light mode variants",
-        "Financial chart and graph components",
-        "Complete design system with color palettes",
-        "Interactive prototypes and documentation"
-      ]
-    },
+    // {
+    //   id: 3,
+    //   title: "Chat application",
+    //   description: "A chat-application with nextjs application.",
+    //   image: "https://blog.happyfox.com/wp-content/uploads/2019/05/in-app-chat-blog-cover-image.png",
+    //   tags: ["nextjs", "antd", "socket", "clerk"],
+    //   category: "api",
+    //   demoLink: "https://github.com/alawoddin/chat-application",
+    //   githubLink: "https://github.com/alawoddin/chat-application",
+    //   details: "A  user interface design for a user and userinterface application. The design focuses on creating a peaceful environment that encourages relaxation and focus.",
+    //   features: [
+    //     "Calming color palette and visual elements",
+    //     "Intuitive meditation timer and tracker",
+    //     "Custom illustrations and iconography",
+    //     "Smooth transitions and micro-interactions",
+    //     "Audio visualization components"
+    //   ]
+    // },
     {
       id: 4,
-      title: "food-website",
-      description: "A cross-platform food-website  for Order online the best food.",
-      image: "https://t3.ftcdn.net/jpg/01/54/14/86/360_F_154148685_yvijeC6L2SFpvqFJ5H1lunPg40FzCAf1.jpg",
-      tags: ["Laravel", "Mongodb", "javascript", "jquery"],
+      title: "Hooks App React",
+      description: "Aplicación desarrollada en React enfocada en el uso de Hooks para manejo de estado, efectos y lógica reutilizable.",
+      image: "https://raw.githubusercontent.com/borispacex/hooks-app-react/refs/heads/main/public/images.png",
+      tags: ["React", "Hooks", "TypeScript", "Frontend", "Vite"],
       category: "web",
-      demoLink: "https://github.com/alawoddin/food-website",
-      githubLink: "https://github.com/alawoddin/food-website",
-      details: "A feature-rich fitness tracking application designed to help users monitor their workouts, nutrition, and overall progress. The app provides personalized recommendations based on user activities.",
+      demoLink: "https://borispacex.github.io/hooks-app-react/",
+      githubLink: "https://github.com/borispacex/hooks-app-react",
+      details: "Proyecto práctico en React que implementa diferentes Hooks como useState, useEffect y hooks personalizados para gestionar el estado y los efectos secundarios de la aplicación. Orientado a comprender buenas prácticas en desarrollo frontend moderno.",
       features: [
-        "Custom workout creation and tracking",
-        "Nutrition diary with calorie calculation",
-        "Progress charts and statistics",
-        "Social features for sharing achievements",
-        "Integration with wearable devices"
+        "Uso de useState para manejo de estado",
+        "Implementación de useEffect para efectos secundarios",
+        "Creación de hooks personalizados reutilizables",
+        "Componentes funcionales modernos",
+        "Arquitectura modular en React"
       ]
     },
-    {
-      id: 5,
-      title: "Saas Content Project",
-      description: "A collaborative Saas Content Project tool with real-time updates.",
-      image: "https://www.actualtechmedia.com/wp-content/uploads/2022/10/What-Makes-B2B-Marketing-SaaS-featured.jpg",
-      tags: ["laravel", "Api", "WebSocket", "OpenAiKey"],
-      category: "web",
-      demoLink: "https://example.com",
-      githubLink: "https://github.com",
-      details: "A collaborative Sass Content Project platform designed for teams with real-time communication and project tracking capabilities. The platform helps teams organize work, track progress, and meet deadlines.",
-      features: [
-        "Real-time collaboration with WebSockets",
-        "Kanban and list views for tasks",
-        "Team and permission management",
-        "File sharing and comments",
-        "Automated reminders and notifications"
-      ]
-    },
-    {
-      id: 6,
-      title: "laravel-insetia",
-      description: "A laravel-insetia for Signal Page  application.",
-      image: "https://web-id.fr/curator/articles/inertia-bg%201.png?fm=webp&h=auto&w=500&s=a402fe878f3c5055281e21734af9314b",
-      tags: ["laravel", "mysql", "Tailwind", "Jquery"],
-      category: "web",
-      demoLink: "https://github.com/alawoddin/laravel-insetia",
-      githubLink: "https://github.com/alawoddin/laravel-insetia",
-      details: "A soothing and calming user interface design for a meditation and mindfulness application. The design focuses on creating a peaceful environment that encourages relaxation and focus.",
-      features: [
-        "Calming color palette and visual elements",
-        "Intuitive meditation timer and tracker",
-        "Custom illustrations and iconography",
-        "Smooth transitions and micro-interactions",
-        "Audio visualization components"
-      ]
-    },
-
-     {
-      id: 7,
-      title: "chat-application",
-      description: "A chat-application with nextjs application.",
-      image: "https://blog.happyfox.com/wp-content/uploads/2019/05/in-app-chat-blog-cover-image.png",
-      tags: ["nextjs", "antd", "socket", "clerk"],
-      category: "api",
-      demoLink: "https://github.com/alawoddin/chat-application",
-      githubLink: "https://github.com/alawoddin/chat-application",
-      details: "A  user interface design for a user and userinterface application. The design focuses on creating a peaceful environment that encourages relaxation and focus.",
-      features: [
-        "Calming color palette and visual elements",
-        "Intuitive meditation timer and tracker",
-        "Custom illustrations and iconography",
-        "Smooth transitions and micro-interactions",
-        "Audio visualization components"
-      ]
-    },
-
-         {
-      id: 8,
-      title: "laravel-react",
-      description: "A laravel-react for Signal Page application.",
-      image: "https://webprogrammer.io/wp-content/uploads/2022/04/install-react-laravel-header.webp",
-      tags: ["laravel", "mysql", "Tailwind", "react"],
-      category: "api",
-      demoLink: "https://github.com/alawoddin/laravel-react",
-      githubLink: "https://github.com/alawoddin/laravel-react",
-      details: "in this project the admin add the data in backend the restful api is show to frontend The design focuses on creating a peaceful environment that encourages relaxation and focus.",
-      features: [
-        "Calming color palette and visual elements",
-        "Intuitive meditation timer and tracker",
-        "Custom illustrations and iconography",
-        "Smooth transitions and micro-interactions",
-        "Audio visualization components"
-      ]
-    },
-
-         {
-      id: 9,
-      title: "Ecommers-with-next",
-      description: "A https://github.com/alawoddin/nextjs-project for Signal Page  application.",
-      image: "https://deerdesigner.com/wp-content/uploads/2024/05/Article-34-ecommerce-design-01.png",
-      tags: ["nextjs", "routedom", "useeffect", "hook"],
-      category: "api",
-      demoLink: "https://github.com/alawoddin/nextjs-project",
-      githubLink: "https://github.com/alawoddin/nextjs-project",
-      details: "A soothing and calming user interface design for a meditation and mindfulness application. The design focuses on creating a peaceful environment that encourages relaxation and focus.",
-      features: [
-        "Calming color palette and visual elements",
-        "Intuitive meditation timer and tracker",
-        "Custom illustrations and iconography",
-        "Smooth transitions and micro-interactions",
-        "Audio visualization components"
-      ]
-    },
-
+    // {
+    //   id: 5,
+    //   title: "spring",
+    //   description: "A laravel-react for Signal Page application.",
+    //   image: "https://webprogrammer.io/wp-content/uploads/2022/04/install-react-laravel-header.webp",
+    //   tags: ["laravel", "mysql", "Tailwind", "react"],
+    //   category: "api",
+    //   demoLink: "https://github.com/alawoddin/laravel-react",
+    //   githubLink: "https://github.com/alawoddin/laravel-react",
+    //   details: "in this project the admin add the data in backend the restful api is show to frontend The design focuses on creating a peaceful environment that encourages relaxation and focus.",
+    //   features: [
+    //     "Calming color palette and visual elements",
+    //     "Intuitive meditation timer and tracker",
+    //     "Custom illustrations and iconography",
+    //     "Smooth transitions and micro-interactions",
+    //     "Audio visualization components"
+    //   ]
+    // },
   ];
-  
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+
+  const filteredProjects = filter === 'all'
+      ? projects
+      : projects.filter(project => project.category === filter);
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -218,6 +144,11 @@ const Projects = () => {
       opacity: 1,
       y: 0,
       transition: { duration: 0.5 }
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.3 }
     }
   };
   
@@ -247,7 +178,8 @@ const Projects = () => {
           ))}
         </div>
         
-        <motion.div 
+        <motion.div
+          key={filter}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -260,6 +192,7 @@ const Projects = () => {
                 key={project.id}
                 className="card overflow-hidden group"
                 variants={itemVariants}
+                exit="exit"
                 layout
                 whileHover={{ y: -5 }}
               >

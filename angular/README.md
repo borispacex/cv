@@ -1,31 +1,68 @@
-# PersonalPortfolioAngular
+<div align="center">
+	<h1>?? Personal Portfolio Angular</h1>
+	<p>Un portafolio profesional desarrollado en Angular para mostrar tu experiencia, proyectos y habilidades.</p>
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+---
 
-## Development server
+## Tabla de Contenidos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Caracter��sticas](#caracter��sticas)
+- [Instalaci��n](#instalaci��n)
+- [Uso](#uso)
+- [Despliegue en GitHub Pages](#despliegue-en-github-pages)
+- [Contacto](#contacto)
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Caracter��sticas
 
-## Build
+- Dise?o responsive y moderno
+- Secciones: Sobre m��, Educaci��n, Experiencia, Proyectos, Habilidades, Contacto
+- Animaciones y estilos personalizados (Bootstrap, AOS)
+- F��cil de personalizar y ampliar
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Instalaci��n
 
-## Running unit tests
+1. Clona el repositorio y entra a la carpeta angular:
+	 ```bash
+	 git clone https://github.com/borispacex/cv.git
+	 cd cv/angular
+	 ```
+2. Instala las dependencias:
+	 ```bash
+	 npm install
+	 ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Uso
 
-## Running end-to-end tests
+Para desarrollo local:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```bash
+ng serve
+```
 
-## Further help
+Abre tu navegador en [http://localhost:4200/](http://localhost:4200/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md)..
+## Despliegue en GitHub Pages
 
-## Deploy
+Genera la versi��n de producci��n en la carpeta `docs/` con el siguiente comando:
 
+```bash
 ng build --prod=true --outputPath=docs --baseHref='https://borispacex.github.io/cv/'
+```
+
+Luego, configura GitHub Pages para servir desde la carpeta `docs/` en la rama principal.
+
+## Contacto
+
+?Tienes dudas o sugerencias? ?Cont��ctame!
+
+- Email: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
+- LinkedIn: [linkedin.com/in/tuusuario](https://linkedin.com/in/tuusuario)
+
+---
+
+<div align="center">
+	Hecho con ?? usando Angular
+</div>

@@ -92,7 +92,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <p className="text-gray-700 dark:text-gray-300 mb-6">{project.details}</p>
             
             <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-3">Key Features</h3>
+              <h3 className="text-lg font-semibold mb-3">Características principales</h3>
               <ul className="space-y-2">
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
@@ -111,7 +111,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 className="btn btn-primary"
               >
                 <ExternalLink size={16} className="mr-2" />
-                Live Demo
+                Demo
               </a>
               <a 
                 href={project.githubLink}
@@ -120,7 +120,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 className="btn btn-outline"
               >
                 <Github size={16} className="mr-2" />
-                View Code
+                Codigo
               </a>
             </div>
           </div>

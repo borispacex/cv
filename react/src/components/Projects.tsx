@@ -226,7 +226,7 @@ const Projects = () => {
                     <button 
                       onClick={() => setSelectedProject(project)}
                       className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center text-gray-900 hover:bg-primary-500 hover:text-white transition-colors"
-                      aria-label="View Details"
+                      aria-label="Mas detalles"
                     >
                       <Maximize size={16} />
                     </button>
@@ -251,7 +251,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                   className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300"
                 >
-                  <span>View Details</span>
+                  <span>Más detalles</span>
                   <ArrowRight size={16} className="ml-1" />
                 </button>
               </motion.div>

@@ -67,9 +67,9 @@ The portfolio highlights my work as a Full-Stack Developer, including SaaS appli
 
 ## 📷 Screenshots
 
-### 🔹 Home Page
+### 🔹 Inicio Page
 
-![Home](screenshots/site.png)
+![Inicio](screenshots/site.png)
 
 ### 🔹 Projects Section
 

@@ -19,7 +19,7 @@ type AboutData = {
 
 const About = () => {
   const aboutData: AboutData = {
-    image: "/image/profile.jpg",
+    image: `${import.meta.env.BASE_URL}image/profile.jpg`,
     description: `Desarrollador Full Stack con experiencia en proyectos de alto impacto en el sector público y financiero, especializado en microservicios, APIs y desarrollo web moderno. Manejo tecnologías como Java, Spring Boot, Angular, .NET y PostgreSQL, además de herramientas DevOps como Docker y Jenkins. Destaco por mi capacidad de adaptación, resolución de problemas y enfoque en la entrega de soluciones escalables y eficientes.`,
     contactInfo: [
       {
@@ -77,7 +77,7 @@ const About = () => {
           >
             <img 
               src={aboutData.image}
-              alt="alawoddin Portrait" 
+              alt="borispacex Portrait"
               className="object-cover object-center w-full h-full"
             />
             

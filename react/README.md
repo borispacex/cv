@@ -100,7 +100,7 @@ src/
 ### 1️⃣ Clone the repository
 
 ```bash id="p2"
-git clone https://github.com/alawoddin/my_portfolio_with_react.git
+git clone https://github.com/borispacex/cv/react.git
 cd portfolio
 ```
 
@@ -134,8 +134,7 @@ I am a Full-Stack Developer with experience in Laravel, React, and Next.js, buil
 
 ## 🔗 Connect with Me
 
-* GitHub: https://github.com/alawoddin
-* Portfolio: https://khedmat.website/
+* GitHub: https://github.com/borispaex
 
 ---
 

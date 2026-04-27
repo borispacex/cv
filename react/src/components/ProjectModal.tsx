@@ -46,7 +46,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   return (
     <AnimatePresence>
       <motion.div
-        key={`background`}
+        key={`background-modal`}
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
         variants={backdropVariants}
         initial="hidden"
@@ -79,9 +79,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           
           <div className="p-6">
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.tags.map((tag, index) => (
+              {project.tags.map((tag) => (
                 <span 
-                  key={`${index}-${tag}`}
+                  key={`tag-${tag}`}
                   className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded"
                 >
                   {tag}
@@ -95,9 +95,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-3">Características principales</h3>
               <ul className="space-y-2">
-                {project.features.map((feature, index) => (
+                {project.features.map((feature) => (
                   <li
-                      key={`${index}-${feature}`}
+                      key={`feature-${feature}`}
                       className="flex items-start">
                     <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                     <span className="text-gray-700 dark:text-gray-300">{feature}</span>

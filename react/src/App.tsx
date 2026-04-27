@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,14 +11,15 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import ThemeToggle from './components/ThemeToggle';
+import {Theme} from "./interfaces/navbar.type.ts";
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 
-             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    }
-    return 'light';
+
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return 'dark';
+
+    const saved = localStorage.getItem('theme');
+    return saved === 'light' || saved === 'dark' ? saved : 'dark';
   });
   
   const [showCursor, setShowCursor] = useState(false);
@@ -63,7 +64,7 @@ function App() {
       <Navbar theme={theme} />
       
       <main>
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <Hero />
           <About />
           <Skills />

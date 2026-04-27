@@ -1,4 +1,3 @@
-import React from 'react';
 import {ArrowUp, Github, Linkedin, Facebook, Instagram, Twitter} from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -59,9 +58,9 @@ const Footer = () => {
                   icon: <Twitter size={18} />,
                   label: "Twitter"
                 }
-              ].map((item, i) => (
+                ].map((item) => (
                   <motion.a
-                      key={`${i}-${item.label}`}
+                    key={`footer-link-${item.label}`}
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"

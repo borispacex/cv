@@ -80,9 +80,9 @@ const Education: React.FC = () => {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
 				>
-					{educationData.map((item, index) => (
+					{educationData.map((item) => (
 						<motion.div
-							key={`${index}-${item.date}`}
+							key={`education-${item.date}`}
 							className="card flex flex-col items-center text-center p-4"
 							whileHover={{
 								y: -5,

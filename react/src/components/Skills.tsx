@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 
@@ -87,9 +87,9 @@ const Skills = () => {
         
         <div className="mt-12">
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category, index) => (
+            {categories.map((category) => (
               <motion.button
-                key={`${index}-${category.name}`}
+                key={`category-${category.id}`}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === category.id
                     ? 'bg-primary-500 text-white'
@@ -105,26 +105,26 @@ const Skills = () => {
           </div>
           
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            key={`${activeCategory.length}}`}
+            className="grid grid-cols-1 gap-8 md:grid-cols-2"
+            key={`skills-list-${activeCategory}`}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             {currentSkills.map((skill, index) => (
               <motion.div 
-                key={`${index}-${skill.name}`}
+                key={`skill-${skill.name}`}
                 className="card"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
               >
                 <div className="flex justify-between mb-2">
                   <span className="font-medium">{skill.name}</span>
-                  <span className="text-primary-600 dark:text-primary-400 font-semibold">{skill.level}%</span>
+                  <span className="font-semibold text-primary-600 dark:text-primary-400">{skill.level}%</span>
                 </div>
-                <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div className="h-2 overflow-hidden bg-gray-200 rounded-full dark:bg-gray-700">
                   <motion.div 
-                    className="h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
+                    className="h-full rounded-full bg-gradient-to-r from-primary-500 to-secondary-500"
                     initial={{ width: 0 }}
                     animate={{ width: `${skill.level}%` }}
                     transition={{ duration: 1, delay: index * 0.1 }}

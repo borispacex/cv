@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {Mail, MapPin, Phone} from 'lucide-react';
 import SectionHeading from './SectionHeading';
@@ -66,9 +66,9 @@ const About = () => {
       <div className="container-custom">
         <SectionHeading title="Acerca de mí" subtitle="Conóceme mejor" />
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mt-12">
+        <div className="grid grid-cols-1 gap-10 mt-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            className="relative overflow-hidden rounded-2xl shadow-xl"
+            className="relative overflow-hidden shadow-xl rounded-2xl"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -78,10 +78,10 @@ const About = () => {
             <img 
               src={aboutData.image}
               alt="alawoddin Portrait" 
-              className="w-full h-full object-cover object-center"
+              className="object-cover object-center w-full h-full"
             />
             
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end">
+            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-gray-900/80 to-transparent">
               <div className="p-6 text-white">
                 <h3 className="text-2xl font-bold">Boris Vargas</h3>
                 <p className="text-gray-200">Software Developer | Junior Devops</p>
@@ -97,23 +97,23 @@ const About = () => {
               variants={fadeInUpVariants}
               custom={2}
             >
-              <h3 className="text-2xl font-bold mb-4">Quien soy</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              <h3 className="mb-4 text-2xl font-bold">Quien soy</h3>
+              <p className="mb-6 leading-relaxed text-gray-700 dark:text-gray-300">
                 {aboutData.description}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+              <p className="mb-8 leading-relaxed text-gray-700 dark:text-gray-300">
                 {aboutData.bio}
               </p>
             </motion.div>
             
             <div>
-              {aboutData.contactInfo.map((item, index) => (
+                {aboutData.contactInfo.map((item, index) => (
                   <motion.a
-                      key={`${index}-${item.title}`}
+                    key={`contact-${item.title}`}
                       href={item.link}
                       target={item.title === "Location" ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      className="card flex items-start p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors my-2"
+                      className="flex items-start p-4 my-2 transition-colors card hover:bg-gray-50 dark:hover:bg-gray-800"
                       variants={contactVariants}
                       custom={index}
                       initial="hidden"
@@ -121,11 +121,11 @@ const About = () => {
                       viewport={{ once: true, margin: "-100px" }}
                       whileHover={{ y: -5 }}
                   >
-                    <div className="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center mr-4 flex-shrink-0">
+                    <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-4 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-1">{item.title}</h4>
+                      <h4 className="mb-1 text-lg font-semibold">{item.title}</h4>
                       <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
                     </div>
                   </motion.a>
@@ -142,7 +142,7 @@ const About = () => {
             >
               <motion.a
                 href="#contact"
-                className="btn btn-primary px-6 py-3"
+                className="px-6 py-3 btn btn-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

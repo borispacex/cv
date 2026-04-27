@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import {ChevronDown, Facebook, Github, Instagram, Linkedin, Twitter} from 'lucide-react';
 
@@ -19,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(5)].map((_, i) => (
           <motion.div
-            key={`${i}`}
+            key={`hero-bg-${i}`}
             className="absolute rounded-full bg-gradient-to-br from-primary-300/20 to-secondary-300/20 dark:from-primary-700/10 dark:to-secondary-700/10"
             style={{
               width: `${Math.random() * 300 + 100}px`,

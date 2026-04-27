@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 
 interface FormState {
@@ -28,27 +28,6 @@ const Contact = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
-  const contactInfo = [
-    {
-      icon: <Mail size={24} />,
-      title: "Email",
-      value: "borisvargaspaucara@gmail.com",
-      link: "borisvargaspaucacara@gmail.com"
-    },
-    {
-      icon: <Phone size={24} />,
-      title: "Phone",
-      value: "+591 60514138",
-      link: "tel:+59160514138"
-    },
-    {
-      icon: <MapPin size={24} />,
-      title: "Location",
-      value: " La Paz, Bolivia",
-      link: "https://maps.app.goo.gl/ELoUUWX5beygVkr1A",
-    }
-  ];
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

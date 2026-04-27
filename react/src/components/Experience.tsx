@@ -222,15 +222,15 @@ const Experience = () => {
             <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 transform md:-translate-x-1/2" />
 
             {experiences.map((experience, index) => (
-                <motion.div
-                    key={`${index}-${experience.company}`}
+              <motion.div
+                key={`experience-${experience.company}`}
                     className={`relative flex flex-col md:flex-row ${
                         index !== experiences.length - 1 ? 'mb-12' : ''
                     }`}
                     variants={itemVariants}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-primary-500 border-4 border-white dark:border-gray-900 transform md:-translate-x-1/2 z-10" />
+                  <div className="absolute left-0 z-10 w-5 h-5 transform border-4 border-white rounded-full md:left-1/2 bg-primary-500 dark:border-gray-900 md:-translate-x-1/2" />
 
                   {/* Content */}
                   <div className={`md:w-1/2 ${
@@ -240,7 +240,7 @@ const Experience = () => {
                   }`}>
 
                     <motion.div
-                        className="card p-5 md:p-6"
+                        className="p-5 card md:p-6"
                         whileHover={{ y: -5 }}
                     >
 
@@ -275,7 +275,7 @@ const Experience = () => {
                       </p>
 
                       {/* Content */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
 
                         {/* Achievements */}
                         <div>
@@ -288,10 +288,10 @@ const Experience = () => {
                           <div className={`flex flex-wrap gap-2 ${
                               index % 2 === 0 ? 'md:justify-end' : ''
                           }`}>
-                            {experience.achievements.map((item, i) => (
-                                <span
-                                    key={`${i}-${item}`}
-                                    className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                            {experience.achievements.map((item) => (
+                              <span
+                                key={`achievement-${item}`}
+                                    className="px-2 py-1 text-xs text-gray-700 bg-gray-100 rounded-md dark:bg-gray-800 dark:text-gray-300"
                                 >
         {item}
       </span>
@@ -310,10 +310,10 @@ const Experience = () => {
                           <div className={`flex flex-wrap gap-2 ${
                               index % 2 === 0 ? 'md:justify-end' : ''
                           }`}>
-                            {experience.technologies.map((tech, i) => (
-                                <span
-                                    key={`${i}-${tech}`}
-                                    className="text-xs px-2 py-1 rounded-md bg-primary-500/10 text-primary-600 dark:text-primary-400"
+                            {experience.technologies.map((tech) => (
+                              <span
+                                key={`tech-${tech}`}
+                                    className="px-2 py-1 text-xs rounded-md bg-primary-500/10 text-primary-600 dark:text-primary-400"
                                 >
                         {tech}
                       </span>

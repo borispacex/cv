@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Github, Maximize } from 'lucide-react';
 import SectionHeading from './SectionHeading';
@@ -161,9 +161,9 @@ const Projects = () => {
         />
         
         <div className="flex flex-wrap justify-center gap-4 mt-12 mb-12">
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <motion.button
-              key={`${index}-${category.name}`}
+              key={`category-${category.id}`}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === category.id
                   ? 'bg-primary-500 text-white'
@@ -179,7 +179,7 @@ const Projects = () => {
         </div>
         
         <motion.div
-          key={`${filter.length}`}
+          key={`projects-list-${filter}`}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -187,9 +187,9 @@ const Projects = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <AnimatePresence>
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <motion.div 
-                key={`${index}-${project.title}`}
+                key={`project-${project.id}`}
                 className="card overflow-hidden group"
                 variants={itemVariants}
                 exit="exit"
@@ -234,9 +234,9 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-2 mb-3">
-                  {project.tags.map((tag, index) => (
+                  {project.tags.map((tag) => (
                     <span
-                      key={`${index}-${tag}`}
+                      key={`tag-${tag}`}
                       className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded"
                     >
                       {tag}

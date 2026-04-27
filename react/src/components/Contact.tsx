@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import SectionHeading from './SectionHeading';
+import emailjs from 'emailjs-com';
 
 interface FormState {
   name: string;
@@ -63,31 +64,44 @@ const Contact = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      
-      // Reset form after successful submission
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
-        setSubmitStatus('idle');
-      }, 3000);
-    }, 1500);
-  };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        setIsSubmitting(true);
+
+        emailjs.send(
+            'service_w6n0evq',
+            'template_d39y5n8',
+            {
+                from_name: formData.name,
+                from_email: formData.email,
+                subject: formData.subject,
+                message: formData.message,
+            },
+            'wpRsYDbNWogfNqdb4'
+        )
+            .then(() => {
+                setIsSubmitting(false);
+                setSubmitStatus('success');
+
+                setTimeout(() => {
+                    setFormData({
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    });
+                    setSubmitStatus('idle');
+                }, 3000);
+            })
+            .catch(() => {
+                setIsSubmitting(false);
+                setSubmitStatus('error');
+            });
+    };
   
   const formVariants = {
     hidden: { opacity: 0, y: 20 },

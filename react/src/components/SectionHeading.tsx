@@ -1,10 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-interface SectionHeadingProps {
-  title: string;
-  subtitle: string;
-}
+import {SectionHeadingProps} from "../interfaces/section-heading.type.ts";
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({ title, subtitle }) => {
   return (

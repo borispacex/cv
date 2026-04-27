@@ -1,11 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
-
-interface ThemeToggleProps {
-  theme: string;
-  toggleTheme: () => void;
-}
+import {ThemeToggleProps} from "../interfaces/theme-toggle.type.ts";
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme }) => {
   return (

@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
+import {Category, Skill} from "../interfaces/skill.type.ts";
 
-type Category = 'all' | 'language' | 'frameworks' | 'libraries' | 'tools';
-type Skill = {
-  name: string;
-  level: number;
-};
 type Skills = Record<Exclude<Category, 'all'>, Skill[]>;
 
 const Skills = () => {

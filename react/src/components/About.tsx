@@ -1,21 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import {Mail, MapPin, Phone} from 'lucide-react';
 import SectionHeading from './SectionHeading';
-
-type ContactItem = {
-  icon: React.ReactNode;
-  title: string;
-  value: string;
-  link: string;
-};
-
-type AboutData = {
-  image: string;
-  description: string;
-  bio?: string;
-  contactInfo:ContactItem[];
-};
+import {AboutData} from "../interfaces/about.type.ts";
 
 const About = () => {
   const aboutData: AboutData = {

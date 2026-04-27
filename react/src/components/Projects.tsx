@@ -3,21 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Github, Maximize } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import ProjectModal from './ProjectModal';
-
-type Category = 'all' | 'articles' | 'web' | 'api';
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  category: Exclude<Category, 'all'>;
-  demoLink: string;
-  githubLink: string;
-  details: string;
-  features: string[];
-}
+import {Category, Project} from "../interfaces/project.type.ts";
 
 const Projects = () => {
   const [filter, setFilter] = useState<Category>('all');

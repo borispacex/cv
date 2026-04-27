@@ -1,15 +1,7 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar } from 'lucide-react';
 import SectionHeading from './SectionHeading';
-
-type ExperienceItem = {
-  company: string;
-  position: string;
-  duration: string;
-  description: string;
-  achievements: string[];
-  technologies: string[];
-};
+import {ExperienceItem} from "../interfaces/experience.type.ts";
 
 const Experience = () => {
   const experiences: ExperienceItem[] = [

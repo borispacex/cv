@@ -1,19 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Github } from 'lucide-react';
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  category: string;
-  demoLink: string;
-  githubLink: string;
-  details: string;
-  features: string[];
-}
+import {Project} from "../interfaces/project.type.ts";
 
 interface ProjectModalProps {
   project: Project | null;

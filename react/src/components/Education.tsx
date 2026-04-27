@@ -2,14 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {Award, GraduationCap, School} from 'lucide-react';
 import SectionHeading from './SectionHeading';
-
-type EducationItem = {
-	date: string;
-	degree: string;
-	institution: string;
-	specialty: string;
-	details: string;
-};
+import {EducationItem} from "../interfaces/education.type.ts";
 
 const getIcon = (degree: string) => {
 	if (degree.includes("Licenciatura")) return <GraduationCap size={20} />;

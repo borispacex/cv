@@ -3,20 +3,7 @@ import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import emailjs from 'emailjs-com';
-
-interface FormState {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  subject?: string;
-  message?: string;
-}
+import {FormErrors, FormState} from "../interfaces/contact.type.ts";
 
 const Contact = () => {
   const [formData, setFormData] = useState<FormState>({

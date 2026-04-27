@@ -87,9 +87,9 @@ const Skills = () => {
         
         <div className="mt-12">
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
+            {categories.map((category, index) => (
               <motion.button
-                key={category.id}
+                key={`${index}-${category.name}`}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === category.id
                     ? 'bg-primary-500 text-white'
@@ -106,14 +106,14 @@ const Skills = () => {
           
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            key={activeCategory}
+            key={`${activeCategory.length}}`}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             {currentSkills.map((skill, index) => (
               <motion.div 
-                key={skill.name} 
+                key={`${index}-${skill.name}`}
                 className="card"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}

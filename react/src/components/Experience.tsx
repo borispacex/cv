@@ -73,7 +73,6 @@ const Experience = () => {
         "Pases a producción",
         "Manejo de bases de Datos Oracle",
         "Manejo de sistemas bancarios",
-        "Soporte a sponsors"
       ],
       technologies: [
         "Apigateway",
@@ -120,8 +119,6 @@ const Experience = () => {
       description: "EMPRESA DE TECNOLOGIA FINANCIERA, DESARROLLO DE SISTEMAS CON TECNOLOGIAS ORACLE PL/SQL POR LA SOLIDEZ, JAVA, JDEVELOPER, ORACLE FORMS, FLUTTER. PRODUCTOS MOVILES Y WEBS DESARROLLADOS: GAM - SOFTWARE PARA ADMINISTRACION DE ACTIVOS FINANCIEROS, DFM - SOFTWARE PARA LA ADMINISTRACION DE FONDOS DE INVERSION, ACH - SISTEMA CLIENTE PARA LA RED INTERBANCARIA.",
       achievements: [
         "Manejo de SCRUM",
-        "Metodologias de seguridad",
-        "Control de calidad en software",
         "Manejo de bases de Datos Oracle",
         "Manejo de sistemas financieros",
         "Soporte a clientes en software"
@@ -129,8 +126,7 @@ const Experience = () => {
       technologies: [
         "JDeveloper",
         "Microsoft",
-        "IIS",
-        "Servidores windows",
+        "Internet Information Services (IIS)",
         "Reportes Jasper",
         "SQL Developer",
         "Java",
@@ -147,7 +143,6 @@ const Experience = () => {
       achievements: [
         "Introducción a las Redes",
         "Redes e Internet",
-        "Improved mobile experience across all company products",
         "Capa de Aplicación y aplicaciones de red",
         "Capa de Transporte",
         "Capa de Red – Plano de datos",
@@ -209,94 +204,133 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="section">
-      <div className="container-custom">
-        <SectionHeading 
-          title="Experiencia laboral"
-          subtitle="Mi trayectoria profesional"
-        />
-        
-        <motion.div 
-          className="relative mt-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {/* Timeline center line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 transform md:-translate-x-1/2" />
-          
-          {experiences.map((experience, index) => (
-            <motion.div 
-              key={index} 
-              className={`relative flex flex-col md:flex-row ${
-                index !== experiences.length - 1 ? 'mb-12' : ''
-              }`}
-              variants={itemVariants}
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-primary-500 border-4 border-white dark:border-gray-900 transform md:-translate-x-1/2 z-10" />
-              
-              {/* Content boxes with alternate layout */}
-              <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto'}`}>
-                <motion.div 
-                  className="card"
-                  whileHover={{ y: -5 }}
+      <section id="experience" className="section scroll-mt-24">
+        <div className="container-custom">
+          <SectionHeading
+              title="Experiencia laboral"
+              subtitle="Mi trayectoria profesional"
+          />
+
+          <motion.div
+              className="relative mt-12"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+          >
+            {/* Timeline center line */}
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 transform md:-translate-x-1/2" />
+
+            {experiences.map((experience, index) => (
+                <motion.div
+                    key={`${index}-${experience.company}`}
+                    className={`relative flex flex-col md:flex-row ${
+                        index !== experiences.length - 1 ? 'mb-12' : ''
+                    }`}
+                    variants={itemVariants}
                 >
-                  <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                    <Briefcase size={18} className="text-primary-500" />
-                    <h3 className="text-xl font-bold">{experience.company}</h3>
-                  </div>
-                  
-                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">
-                    {experience.position}
-                  </h4>
-                  
-                  <div className={`flex items-center gap-1 text-gray-600 dark:text-gray-400 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                    <Calendar size={14} />
-                    <span className="text-sm">{experience.duration}</span>
-                  </div>
-                  
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    {experience.description}
-                  </p>
+                  {/* Timeline dot */}
+                  <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-primary-500 border-4 border-white dark:border-gray-900 transform md:-translate-x-1/2 z-10" />
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">
-                        Contenido analítico
-                      </h4>
-                      <ul className={`space-y-2 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                        {experience.achievements.map((achievement, i) => (
-                            <li key={i} className="text-gray-700 dark:text-gray-300 flex items-start">
-                              <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                              <span>{achievement}</span>
-                            </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Content */}
+                  <div className={`md:w-1/2 ${
+                      index % 2 === 0
+                          ? 'md:pr-12 md:text-right'
+                          : 'md:pl-12 md:ml-auto'
+                  }`}>
 
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">
-                        Tecnologías y lenguajes
+                    <motion.div
+                        className="card p-5 md:p-6"
+                        whileHover={{ y: -5 }}
+                    >
+
+                      {/* Header */}
+                      <div className={`flex items-center gap-2 mb-1 ${
+                          index % 2 === 0 ? 'md:justify-end' : ''
+                      }`}>
+                        <Briefcase size={16} className="text-primary-500" />
+                        <h3 className="text-lg font-bold">
+                          {experience.company}
+                        </h3>
+                      </div>
+
+                      <h4 className={`text-sm font-semibold text-gray-700 dark:text-gray-300 ${
+                          index % 2 === 0 ? 'md:text-right' : ''
+                      }`}>
+                        {experience.position}
                       </h4>
-                      <ul className={`space-y-2 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                        {experience.technologies.map((technology, i) => (
-                            <li key={i} className="text-gray-700 dark:text-gray-300 flex items-start">
-                              <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                              <span>{technology}</span>
-                            </li>
-                        ))}
-                      </ul>
-                    </div>
+
+                      <div className={`flex items-center gap-1 text-gray-500 mb-3 text-xs ${
+                          index % 2 === 0 ? 'md:justify-end' : ''
+                      }`}>
+                        <Calendar size={12} />
+                        <span>{experience.duration}</span>
+                      </div>
+
+                      {/* Description */}
+                      <p className={`text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed ${
+                          index % 2 === 0 ? 'md:text-right' : ''
+                      }`}>
+                        {experience.description}
+                      </p>
+
+                      {/* Content */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        {/* Achievements */}
+                        <div>
+                          <h4 className={`text-sm font-semibold mb-2 ${
+                              index % 2 === 0 ? 'md:text-right' : ''
+                          }`}>
+                            Contenido
+                          </h4>
+
+                          <div className={`flex flex-wrap gap-2 ${
+                              index % 2 === 0 ? 'md:justify-end' : ''
+                          }`}>
+                            {experience.achievements.map((item, i) => (
+                                <span
+                                    key={`${i}-${item}`}
+                                    className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                                >
+        {item}
+      </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Technologies */}
+                        <div>
+                          <h4 className={`text-sm font-semibold mb-2 ${
+                              index % 2 === 0 ? 'md:text-right' : ''
+                          }`}>
+                            Tecnologías
+                          </h4>
+
+                          <div className={`flex flex-wrap gap-2 ${
+                              index % 2 === 0 ? 'md:justify-end' : ''
+                          }`}>
+                            {experience.technologies.map((tech, i) => (
+                                <span
+                                    key={`${i}-${tech}`}
+                                    className="text-xs px-2 py-1 rounded-md bg-primary-500/10 text-primary-600 dark:text-primary-400"
+                                >
+                        {tech}
+                      </span>
+                            ))}
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </motion.div>
+
                   </div>
                 </motion.div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+            ))}
+          </motion.div>
+        </div>
+      </section>
   );
 };
 

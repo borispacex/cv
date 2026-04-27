@@ -161,9 +161,9 @@ const Projects = () => {
         />
         
         <div className="flex flex-wrap justify-center gap-4 mt-12 mb-12">
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <motion.button
-              key={category.id}
+              key={`${index}-${category.name}`}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === category.id
                   ? 'bg-primary-500 text-white'
@@ -179,7 +179,7 @@ const Projects = () => {
         </div>
         
         <motion.div
-          key={filter}
+          key={`${filter.length}`}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -187,9 +187,9 @@ const Projects = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <AnimatePresence>
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.div 
-                key={project.id}
+                key={`${index}-${project.title}`}
                 className="card overflow-hidden group"
                 variants={itemVariants}
                 exit="exit"
@@ -235,8 +235,8 @@ const Projects = () => {
                 
                 <div className="flex flex-wrap gap-2 mb-3">
                   {project.tags.map((tag, index) => (
-                    <span 
-                      key={index}
+                    <span
+                      key={`${index}-${tag}`}
                       className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded"
                     >
                       {tag}

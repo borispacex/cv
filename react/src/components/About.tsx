@@ -109,7 +109,7 @@ const About = () => {
             <div>
               {aboutData.contactInfo.map((item, index) => (
                   <motion.a
-                      key={index}
+                      key={`${index}-${item.title}`}
                       href={item.link}
                       target={item.title === "Location" ? "_blank" : undefined}
                       rel="noopener noreferrer"

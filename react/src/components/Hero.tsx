@@ -3,6 +3,13 @@ import { motion } from 'framer-motion';
 import {ChevronDown, Facebook, Github, Instagram, Linkedin, Twitter} from 'lucide-react';
 
 const Hero = () => {
+
+  const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.7 }
+  };
+
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
@@ -12,7 +19,7 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(5)].map((_, i) => (
           <motion.div
-            key={i}
+            key={`${i}`}
             className="absolute rounded-full bg-gradient-to-br from-primary-300/20 to-secondary-300/20 dark:from-primary-700/10 dark:to-secondary-700/10"
             style={{
               width: `${Math.random() * 300 + 100}px`,
@@ -50,20 +57,26 @@ const Hero = () => {
             className="mb-6 leading-tight max-w-4xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Creando <span className="text-gradient">experiencias </span> digitales impactantes con código
+            Construyendo <span className="text-gradient"> Aplicaciones web, APIs y Sistemas </span> listos para producción
           </motion.h1>
-          
+
           <motion.p
-            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mb-4"
+              {...fadeUp}
           >
-            Soy Boris Vargas, desarrollador Software Developer | Junior Devops apasionado por crear interfaces atractivas y centradas en el usuario que combinan estética y funcionalidad.
+            Soy , <span className="text-gradient"> Boris Vargas </span> desarrollador Full Stack con enfoque en Backend y prácticas DevOps.
           </motion.p>
-          
+
+          <motion.p
+              className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            Construyo aplicaciones web, desarrollo APIs REST y gestiono despliegues.
+          </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 mb-12"
             initial={{ opacity: 0, y: 20 }}

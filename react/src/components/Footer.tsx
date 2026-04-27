@@ -61,7 +61,7 @@ const Footer = () => {
                 }
               ].map((item, i) => (
                   <motion.a
-                      key={i}
+                      key={`${i}-${item.label}`}
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"

@@ -76,9 +76,9 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, staggerChildren: 0.1, delayChildren: 0.1 }}
           >
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <motion.a
-                key={link.id}
+                key={`${index}-${link.id}`}
                 href={`#${link.id}`}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
                   activeSection === link.id
@@ -124,9 +124,9 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
           transition={{ duration: 0.3 }}
         >
           <div className="container-custom py-4 flex flex-col space-y-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
-                key={link.id}
+                key={`${index}-${link.id}`}
                 href={`#${link.id}`}
                 className={`px-4 py-3 rounded-md text-base font-medium ${
                   activeSection === link.id

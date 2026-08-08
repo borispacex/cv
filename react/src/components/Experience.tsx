@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Briefcase, CalendarDays, CheckCircle2, ChevronDown, Code2 } from 'lucide-react';
+import { CalendarDays, CheckCircle2, ChevronDown, Code2 } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import {ExperienceItem} from "../interfaces/experience.type.ts";
 
@@ -10,6 +10,7 @@ const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
       company: "Ministerio de Gobierno",
+      logo: `${import.meta.env.BASE_URL}image/companies/ministerio-gobierno.png`,
       position: "Técnico I – Desarrollo de Sistemas",
       duration: "Sep 2025 — Dic 2025",
       description: "Desarrollo Full Stack con Angular 17, NG-Prime, TypeScript y NestJS sobre PostgreSQL. Implementé portales institucionales y sistemas de alerta temprana para seguridad nacional.",
@@ -34,6 +35,7 @@ const Experience = () => {
     },
     {
       company: "Digital Harbor Bolivia",
+      logo: `${import.meta.env.BASE_URL}image/companies/digital-harbor.png`,
       position: "Software Developer | Mid Level",
       duration: "Jun 2025 — Sep 2025",
       description: "Desarrollo backend con Java 17, Spring Boot y Python Django en proyectos que integran APIs REST, Elasticsearch y mensajería con Kafka.",
@@ -58,6 +60,7 @@ const Experience = () => {
     },
     {
       company: "Banco Unión S.A.",
+      logo: `${import.meta.env.BASE_URL}image/companies/banco-union.png`,
       position: "Programador Proyecto CORE",
       duration: "Jun 2023 — Jun 2025",
       description: "Participé en el desarrollo del nuevo core bancario usando Java, Quarkus, Angular y Oracle. Implementé microservicios y apoyé la transición hacia arquitecturas modernas.",
@@ -82,6 +85,7 @@ const Experience = () => {
     },
     {
       company: "Banco Solidario S.A.",
+      logo: `${import.meta.env.BASE_URL}image/companies/bancosol.png`,
       position: "Analista de Sistemas",
       duration: "Feb 2023 — May 2023",
       description: "Soporte y desarrollo en sistemas bancarios y facturación electrónica. Realicé pruebas de servicios web y coordiné pases a producción con SQL Server y .NET Core.",
@@ -105,6 +109,7 @@ const Experience = () => {
     },
     {
       company: "DazaSoftware S.A.",
+      logo: `${import.meta.env.BASE_URL}image/companies/daza-software.png`,
       position: "Desarrollador Full Stack",
       duration: "Feb 2021 — Dic 2022",
       description: "Desarrollo de soluciones fintech con Java, Oracle PL/SQL, JDeveloper, Oracle Forms y Flutter. Trabajé en sistemas de administración de activos, fondos de inversión y pagos interbancarios.",
@@ -127,6 +132,7 @@ const Experience = () => {
     },
     {
       company: "Universidad Mayor de San Andrés",
+      logo: `${import.meta.env.BASE_URL}image/companies/umsa.png`,
       position: "Auxiliar de Docencia",
       duration: "Feb 2020 — Dic 2020",
       description: "Impartí clases teórico-prácticas de redes de computadores, orientando a estudiantes en diseño de redes, protocolos y herramientas de simulación.",
@@ -151,6 +157,7 @@ const Experience = () => {
     },
     {
       company: "Instituto de Ecología, UMSA",
+      logo: `${import.meta.env.BASE_URL}image/companies/instituto-ecologia.png`,
       position: "Pasante",
       duration: "Ago 2019 — Dic 2019",
       description: "Desarrollé un sistema web de seguimiento y control de proyectos de investigación para docentes e investigadores del instituto.",
@@ -171,6 +178,16 @@ const Experience = () => {
     }
   ];
 
+  const getYearLabel = (duration: string) => {
+    const years = duration.match(/\d{4}/g) ?? [];
+    const firstYear = years[0];
+    const lastYear = years[years.length - 1];
+
+    return firstYear && lastYear && firstYear !== lastYear
+      ? `${firstYear}–${lastYear}`
+      : firstYear ?? duration;
+  };
+
   return (
       <section id="experience" className="experience-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-24">
         <div className="container-custom">
@@ -187,11 +204,11 @@ const Experience = () => {
               transition={{ duration: 0.5 }}
           >
             <div
-              className="absolute bottom-6 left-4 top-6 w-0.5 bg-gradient-to-b from-primary-500 via-primary-300 to-gray-200 dark:via-primary-800 dark:to-gray-800"
+              className="experience-line absolute bottom-6 left-4 top-6 w-0.5 bg-gradient-to-b from-primary-500 via-primary-300 to-gray-200 dark:via-primary-800 dark:to-gray-800 lg:left-14"
               aria-hidden="true"
             />
 
-            <div className="space-y-3 pl-10">
+            <div className="space-y-3 pl-10 lg:pl-20">
             {experiences.map((experience, index) => (
               <article
                 key={`experience-${experience.company}`}
@@ -201,8 +218,20 @@ const Experience = () => {
                     : 'border-gray-200 hover:border-primary-200 dark:border-gray-800 dark:hover:border-primary-900'
                 }`}
               >
+                <span className={`experience-year absolute top-4 hidden items-center justify-center whitespace-nowrap rounded-full border px-2 py-1 text-xs font-bold shadow-sm transition-all after:absolute after:left-full after:top-1/2 after:h-px after:w-2 after:content-[''] lg:flex ${
+                  getYearLabel(experience.duration).includes('–')
+                    ? '-left-[7rem] w-20'
+                    : '-left-[5.5rem] w-14'
+                } ${
+                  openExperience === index
+                    ? 'border-primary-500 bg-primary-500 text-white after:bg-primary-500'
+                    : 'border-gray-200 bg-white text-gray-600 after:bg-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:after:bg-gray-700'
+                }`}>
+                  {getYearLabel(experience.duration)}
+                </span>
+
                 <span
-                  className={`experience-dot absolute -left-8 top-6 z-10 h-5 w-5 rounded-full border-4 border-white transition-colors dark:border-gray-950 ${
+                  className={`experience-dot absolute -left-8 top-6 z-10 h-5 w-5 rounded-full border-4 border-gray-50 transition-colors dark:border-gray-900 ${
                     openExperience === index
                       ? 'bg-primary-500 ring-4 ring-primary-100 dark:ring-primary-950'
                       : 'bg-gray-300 dark:bg-gray-700'
@@ -217,12 +246,17 @@ const Experience = () => {
                   aria-expanded={openExperience === index}
                   aria-controls={`experience-panel-${index}`}
                 >
-                  <span className={`experience-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors sm:h-12 sm:w-12 ${
+                  <span className={`experience-icon flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border p-1.5 transition-all sm:h-12 sm:w-12 ${
                     openExperience === index
-                      ? 'bg-primary-500 text-white'
-                      : 'bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400'
+                      ? 'border-primary-300 bg-white shadow-sm dark:border-primary-700 dark:bg-gray-100'
+                      : 'border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-100'
                   }`}>
-                    <Briefcase size={20} aria-hidden="true" />
+                    <img
+                      src={experience.logo}
+                      alt={`Logo de ${experience.company}`}
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                    />
                   </span>
 
                   <span className="min-w-0 flex-1">

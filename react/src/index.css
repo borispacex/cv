@@ -199,6 +199,10 @@
       top: 1.25rem;
     }
 
+    .experience-year {
+      top: 0.875rem;
+    }
+
     .contact-section {
       @apply py-6;
     }

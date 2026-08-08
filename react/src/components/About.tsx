@@ -6,13 +6,14 @@ import {AboutData} from "../interfaces/about.type.ts";
 const About = () => {
   const aboutData: AboutData = {
     image: `${import.meta.env.BASE_URL}image/profile.jpg`,
-    description: `Desarrollador Full Stack con experiencia en proyectos de alto impacto en el sector público y financiero, especializado en microservicios, APIs y desarrollo web moderno. Manejo tecnologías como Java, Spring Boot, Angular, .NET y PostgreSQL, además de herramientas DevOps como Docker y Jenkins. Destaco por mi capacidad de adaptación, resolución de problemas y enfoque en la entrega de soluciones escalables y eficientes.`,
+    description: `Desarrollador Full Stack con experiencia en proyectos de alto impacto en el sector público y financiero. Especializado en microservicios, APIs y desarrollo web moderno con Java, Spring Boot, Angular, .NET y PostgreSQL. Domino herramientas DevOps como Docker, Jenkins y despliegues automatizados.`,
+    bio: `Soy un profesional orientado a resultados, comprometido con la calidad y con la capacidad de adaptar arquitecturas a necesidades reales de negocio. Trabajo de forma colaborativa y siempre busco maximizar la escalabilidad y el rendimiento de cada solución.`,
     contactInfo: [
       {
         icon: <Mail size={24} />,
-        title: "Correo electronico",
+        title: "Correo electrónico",
         value: "borisvargaspaucara@gmail.com",
-        link: "borisvargaspaucacara@gmail.com"
+        link: "mailto:borisvargaspaucara@gmail.com"
       },
       {
         icon: <Phone size={24} />,
@@ -97,7 +98,7 @@ const About = () => {
                   <motion.a
                     key={`contact-${item.title}`}
                       href={item.link}
-                      target={item.title === "Location" ? "_blank" : undefined}
+                      target={item.title === "Dirección" ? "_blank" : undefined}
                       rel="noopener noreferrer"
                       className="flex items-start p-4 my-2 transition-colors card hover:bg-gray-50 dark:hover:bg-gray-800"
                       variants={contactVariants}

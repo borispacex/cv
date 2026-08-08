@@ -19,30 +19,33 @@ const Skills = () => {
   const skills: Skills = {
 
      language: [
-      { name: 'C#, AspNet, .Net Core', level: 75 },
       { name: 'Java', level: 95 },
-      { name: 'Python', level: 50 },
-      { name: 'TypeScript', level: 50 },
+      { name: 'C#', level: 80 },
+      { name: 'TypeScript', level: 80 },
+      { name: 'Python', level: 60 },
       { name: 'SQL', level: 90 },
     ],
     frameworks: [
       { name: 'React', level: 92 },
       { name: 'Angular', level: 85 },
-      { name: 'SpringBoot', level: 65 },
-      { name: 'Quarkus', level: 60 },
-      { name: 'Flutter', level: 40 },
+      { name: 'Spring Boot', level: 75 },
+      { name: 'Quarkus', level: 70 },
+      { name: 'Django', level: 60 },
     ],
     libraries: [
       { name: 'Bootstrap', level: 85 },
       { name: 'Tailwind', level: 75 },
+      { name: 'NG-Prime', level: 70 },
     ],
     tools: [
       { name: 'Git', level: 88 },
-      { name: 'Chrome DevTools', level: 90 },
       { name: 'Docker', level: 88 },
       { name: 'Jenkins', level: 90 },
-      { name: 'SQLServer y Oracle y PostgreSQL', level: 75 },
-      { name: 'AWS, GoogleCloud y DigitalOcean', level: 70 },
+      { name: 'Kubernetes', level: 70 },
+      { name: 'PostgreSQL', level: 88 },
+      { name: 'SQL Server', level: 85 },
+      { name: 'Oracle', level: 80 },
+      { name: 'AWS / GCP', level: 70 },
       { name: 'Linux', level: 80 },
     ],
   };

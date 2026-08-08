@@ -65,7 +65,7 @@ const Hero = () => {
               className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mb-4"
               {...fadeUp}
           >
-            Soy , <span className="text-gradient"> Boris Vargas </span> desarrollador Full Stack con enfoque en Backend y prácticas DevOps.
+            Soy <span className="text-gradient">Boris Vargas</span>, desarrollador Full Stack con foco en Backend, DevOps y sistemas empresariales.
           </motion.p>
 
           <motion.p
@@ -74,7 +74,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Construyo aplicaciones web, desarrollo APIs REST y gestiono despliegues.
+            Diseño soluciones confiables con Java, TypeScript, APIs REST y despliegues automatizados para proyectos de alto impacto.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 mb-12"

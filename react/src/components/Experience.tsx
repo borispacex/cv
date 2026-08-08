@@ -7,15 +7,14 @@ const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
       company: "Ministerio de Gobierno",
-      position: "Técnico I – Técnico en Desarrollo de Sistemas I",
+      position: "Técnico I – Desarrollo de Sistemas",
       duration: "26-09-2025 a 31-12-2025",
-      description: "DESARROLLO FULL STACK EN EN TECNOLOGIAS FRONTEND ANGULAR 17, NG-PRIME, TYPESCRIPT Y BACKEND NESTJS TYPESCRIPT POSTGRESQL Y CMS DRUPAL. PORTAL INSTITUCIONAL OBSCD, SISTEMA DE INFORMACION NACIONAL DE ALERTAS TEMPRANAS SOBRE DROGAS (SINATD), SISTEMA NACIONAL DE INFORMACION SOBRE SEGURIDAD ESTATAL (SNISE).",
+      description: "Desarrollo Full Stack con Angular 17, NG-Prime, TypeScript y NestJS sobre PostgreSQL. Implementé portales institucionales y sistemas de alerta temprana para seguridad nacional.",
       achievements: [
-        "Alertas Tempranas",
-        "Cordinar con Entidades",
-        "Manejo Graficas (Dashboard)",
-        "Despliegue de Aplicaciones",
-        "Portales web"
+        "Diseño e implementación de dashboards de alertas tempranas",
+        "Integración de portales web institucionales con Drupal y servicios backend",
+        "Coordinación con entidades públicas para despliegues y entregas",
+        "Optimización de consultas y visualización de datos en PostgreSQL"
       ],
       technologies: [
           "Microservicios",
@@ -23,10 +22,10 @@ const Experience = () => {
           "Drupal",
           "Metabase",
           "NextCloud",
-          "Typescript",
+          "TypeScript",
           "NestJS",
           "Docker",
-          "Gitlab",
+          "GitLab",
           "Angular 18"
       ]
     },
@@ -34,40 +33,39 @@ const Experience = () => {
       company: "Digital Harbor Bolivia",
       position: "Software Developer | Mid Level",
       duration: "05-06-2025 a 01-09-2025",
-      description: "DESARROLLO EN EL EQUIPO DE BACKEND CON TECNOLOGIAS JAVA 17 FRAMEWORK SPRINGBOOT ELASTICSEARCH, APIREST, SOAP, KAFKA, CACHE REDIS, WEBSOCKETS, GATEWAY, DISCOVERY Y TAMBIEN BACKEND CON TECNOLOGIAS PYTHON DJANGO CON BASES DE DATOS SQL SERVER Y POSTGRESQL SE PARTICIPO EN PROYECTOS DE SOCIAL TEXT.",
+      description: "Desarrollo backend con Java 17, Spring Boot y Python Django en proyectos que integran APIs REST, Elasticsearch y mensajería con Kafka.",
       achievements: [
-        "Jira",
-        "Automatización",
-        "Manejo SqlServer, Mongo, Redis",
-        "Servicios de outsourcing",
-        "Innovación"
+        "Creación de microservicios para procesamiento y búsqueda de datos",
+        "Automatización de pipelines de despliegue con Jenkins y Docker",
+        "Desarrollo de APIs REST y SOAP con SQL Server y PostgreSQL",
+        "Colaboración en soluciones de social text orientadas a cliente"
       ],
       technologies: [
           "Microservicios",
-          "SqlServer",
-          "SpringCloud",
+          "SQL Server",
+          "Spring Cloud",
           "Kafka",
-          "ElasticSearch",
+          "Elasticsearch",
           "Java 17",
-          "SpringBoot",
+          "Spring Boot",
           "Docker",
           "Jenkins",
           "Angular 12"
       ]
     },
     {
-      company: "Banco Union S.A.",
+      company: "Banco Unión S.A.",
       position: "Programador Proyecto CORE",
       duration: "22-06-2023 a 04-06-2025",
-      description: "DESARROLLO DEL NUEVO CORE BANCARIA EN LENGUAJES DE PROGRAMACION JAVA8, JAVA11, JAVA17, ANGULAR 2 Y BASE DE DATOS ORACLE, PL/SQL. TECNOLOGIAS ACTUALES MICROSERVICIOS CON CONTENEDORES DOCKER, JAVA-QUARKUS, VUE3-TYPESCRIPT Y BASE DE DATOS SQL SERVER, SERVIDOR WILDFLY. APLICANDO METODOLOGIA AGIL SCRUM CON PLANNER ASI CORDINANDO CON EL ARQUITECTO DE SOFTWARE. SE PARTICIPO EN PROYECTOS DE APIGATEWAY, PARAMETROS, ACCESOS, CAPTACIONES, CAJAS. COMO LOGRO MI PERSONA LOGRO CAPACITAR A PERSONAL DE ATENCION A CLIENTE EN PANDO, ASI CAPTURANDO CONVIVENCIA DE UNIBANCA Y UNICORE. TAMBIEN SE CAPACITO A EMPRESAS EXTERNAS A BANCOUNION QUE PROVEIAN MODULOS, CAPACITANDOLOS EN COMO MANEJAMOS LAS TECNOLOGIAS EN UNICORE.",
+      description: "Participé en el desarrollo del nuevo core bancario usando Java, Quarkus, Angular y Oracle. Implementé microservicios y apoyé la transición hacia arquitecturas modernas.",
       achievements: [
-        "Manejo de Scrum",
-        "Pases a producción",
-        "Manejo de bases de Datos Oracle",
-        "Manejo de sistemas bancarios",
+        "Desarrollo de módulos de API Gateway y servicios de acceso",
+        "Migración y soporte de procesos bancarios a microservicios Docker",
+        "Capacitación de personal y proveedores en la plataforma UNICORE",
+        "Entrega exitosa de pases a producción bajo metodología Scrum"
       ],
       technologies: [
-        "Apigateway",
+        "API Gateway",
         "Microservicios",
         "Angular",
         "Oracle",
@@ -83,23 +81,21 @@ const Experience = () => {
       company: "Banco Solidario S.A.",
       position: "Analista de Sistemas",
       duration: "01-02-2023 a 04-05-2023",
-      description: "APOYO CON MESAS DE AYUDA RESPECTO CON BASE DE DATOS SQL SERVER CON EL CORE BANTOTAL, SERVICIOS EN SQL SERVER – TSQL, SISTEMA DE FACTURACION ELECTRONICA, VU FRAUD, PRUEBAS RAFAGA DE SERVICIOS WEB Y ADEMAS DE PASES A PRODUCCION DE SISTEMAS. LENGUAJES DE PROGRAMACION JAVA, .NET CORE, GENEXUS, DESCARTES, JMETER. TODO APLICANDO LA METODOLOGIA AGIL KANBAN (PORTOFOLIOS).",
+      description: "Soporte y desarrollo en sistemas bancarios y facturación electrónica. Realicé pruebas de servicios web y coordiné pases a producción con SQL Server y .NET Core.",
       achievements: [
-        "Manejo de Kambas",
-        "Pases a producción",
-        "Manejo de bases de Datos SQL Server",
-        "Manejo de sistemas contabilidad",
-        "Soporte a clientes de la entidad"
+        "Ejecución de pruebas de rendimiento con JMeter",
+        "Gestión de mesas de ayuda para incidentes y consultas técnicas",
+        "Soporte en integración de facturación electrónica y servicios web",
+        "Colaboración en despliegues y mejoras en el Core bancario"
       ],
       technologies: [
-        "Pruebas con JMeter",
-        "Microsoft",
-        "Servidores Windows IIS",
-        "Sistema Bantotal",
-        "Teams",
+        "JMeter",
+        "Windows IIS",
+        "SQL Server",
+        "Bantotal",
+        "Microsoft Teams",
         ".NET",
         "GeneXus",
-        "Descartes",
         "Docker",
         "Transact-SQL (TSQL)"
       ]
@@ -108,38 +104,34 @@ const Experience = () => {
       company: "DazaSoftware S.A.",
       position: "Desarrollador Full Stack",
       duration: "01-02-2021 a 31-12-2022",
-      description: "EMPRESA DE TECNOLOGIA FINANCIERA, DESARROLLO DE SISTEMAS CON TECNOLOGIAS ORACLE PL/SQL POR LA SOLIDEZ, JAVA, JDEVELOPER, ORACLE FORMS, FLUTTER. PRODUCTOS MOVILES Y WEBS DESARROLLADOS: GAM - SOFTWARE PARA ADMINISTRACION DE ACTIVOS FINANCIEROS, DFM - SOFTWARE PARA LA ADMINISTRACION DE FONDOS DE INVERSION, ACH - SISTEMA CLIENTE PARA LA RED INTERBANCARIA.",
+      description: "Desarrollo de soluciones fintech con Java, Oracle PL/SQL, JDeveloper, Oracle Forms y Flutter. Trabajé en sistemas de administración de activos, fondos de inversión y pagos interbancarios.",
       achievements: [
-        "Manejo de SCRUM",
-        "Manejo de bases de Datos Oracle",
-        "Manejo de sistemas financieros",
-        "Soporte a clientes en software"
+        "Implementación de sistemas financieros para gestión de activos y fondos",
+        "Desarrollo móvil y web con Flutter y Java",
+        "Soporte técnico y comunicación con clientes del sector financiero",
+        "Aplicación de prácticas ágiles en proyectos de ciclo completo"
       ],
       technologies: [
         "JDeveloper",
-        "Microsoft",
-        "Internet Information Services (IIS)",
-        "Reportes Jasper",
+        "IIS",
+        "Jasper Reports",
         "SQL Developer",
         "Java",
-        "Typescript",
+        "TypeScript",
         "Docker",
         "PHP"
       ]
     },
     {
-      company: "Universidad Mayor de San Andres",
+      company: "Universidad Mayor de San Andrés",
       position: "Auxiliar de Docencia",
       duration: "01-02-2020 a 31-12-2020",
-      description: "FACILITAR Y BRINDAR LOS CONOCIMIENTOS TEÓRICO - PRÁCTICO SOBRE LOS CONCEPTOS Y FUNDAMENTOS DE LAS REDES DE COMPUTADORES PARA QUE EL ESTUDIANTE SEA CAPAZ DE UTILIZAR, DISEÑAR E IMPLANTAR DIFERENTES TIPOS DE REDES. EL CURSO ESTÁ DISEÑADO PARA PROPORCIONAR UN CLARO ENTENDIMIENTO SOBRE LOS COMPONENTES DE LAS REDES Y CÓMO ESTAS NOS PERMITEN COMPARTIR INFORMACIÓN Y COMUNICARNOS.",
+      description: "Impartí clases teórico-prácticas de redes de computadores, orientando a estudiantes en diseño de redes, protocolos y herramientas de simulación.",
       achievements: [
-        "Introducción a las Redes",
-        "Redes e Internet",
-        "Capa de Aplicación y aplicaciones de red",
-        "Capa de Transporte",
-        "Capa de Red – Plano de datos",
-        "Capa de Red – Plano de Control",
-        "Capa de Enlace y redes LANs"
+        "Preparación de contenido para redes LAN, TCP/IP y servicios de red",
+        "Guía práctica en capas OSI y comunicación entre dispositivos",
+        "Entrenamiento en Packet Tracer y configuración de redes",
+        "Apoyo directo a estudiantes en actividades de laboratorio"
       ],
       technologies: [
         "Git",
@@ -155,20 +147,20 @@ const Experience = () => {
       ]
     },
     {
-      company: "Instituto de Ecologia, UMSA",
+      company: "Instituto de Ecología, UMSA",
       position: "Pasante",
       duration: "15-08-2019 a 13-12-2019",
-      description: "DESARROLLO DEL SISTEMA WEB DE SEGUIMIENTO Y CONTROL DE PROYECTOS DE INVESTIGACIÓN, SE ENFOCA EN MEJORAR EL MECANISMO DE SEGUIMIENTO Y CONTROL DE LOS PROYECTOS DE INVESTIGACIÓN PARA DOCENTES INVESTIGADORES DEL INSTITUTO DE ECOLOGÍA.",
+      description: "Desarrollé un sistema web de seguimiento y control de proyectos de investigación para docentes e investigadores del instituto.",
       achievements: [
-        "Desarrollo de software",
-        "Desarrollo de aplicaciones",
-        "Desarrollo web"
+        "Creación de la aplicación para seguimiento de proyectos de investigación",
+        "Optimización de la gestión de información en el instituto",
+        "Implementación de una interfaz intuitiva para usuarios académicos"
       ],
       technologies: [
         "JavaScript",
         "TypeScript",
         "PostgreSQL",
-        "NodeJS",
+        "Node.js",
         "Sequelize",
         "Angular 9+",
         "Bootstrap 4"

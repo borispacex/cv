@@ -21,13 +21,22 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
   // Close modal when clicking escape key
   React.useEffect(() => {
+    if (!project) return;
+
+    const previousOverflow = document.body.style.overflow;
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
-    
+
+    document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [onClose]);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [project, onClose]);
 
   if (!project) return null;
 
@@ -35,7 +44,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
     <AnimatePresence>
       <motion.div
         key={`background-modal`}
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/60 p-4 backdrop-blur-sm"
         variants={backdropVariants}
         initial="hidden"
         animate="visible"
@@ -43,7 +52,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         onClick={onClose}
       >
         <motion.div
-          className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+          className="project-modal w-full max-w-3xl max-h-[90dvh] overflow-y-auto overscroll-contain rounded-xl bg-white shadow-2xl dark:bg-gray-900"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
           variants={modalVariants}
           initial="hidden"
           animate="visible"
@@ -54,19 +66,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <img 
               src={project.image} 
               alt={project.title}
-              className="w-full h-64 sm:h-80 object-cover object-center rounded-t-xl"
+              className="project-modal-image h-64 w-full rounded-t-xl object-cover object-center sm:h-80"
             />
             <button
               onClick={onClose}
               className="absolute top-4 right-4 w-8 h-8 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-              aria-label="Close modal"
+              aria-label="Cerrar detalles del proyecto"
             >
               <X size={18} />
             </button>
           </div>
           
-          <div className="p-6">
-            <div className="flex flex-wrap gap-2 mb-4">
+          <div className="project-modal-content p-6">
+            <div className="project-modal-tags mb-4 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span 
                   key={`tag-${tag}`}
@@ -77,10 +89,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               ))}
             </div>
             
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3">{project.title}</h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">{project.details}</p>
+            <h2 id="project-modal-title" className="project-modal-title mb-3 text-2xl font-bold sm:text-3xl">{project.title}</h2>
+            <p className="project-modal-description mb-6 text-gray-700 dark:text-gray-300">{project.details}</p>
             
-            <div className="mb-6">
+            <div className="project-modal-features mb-6">
               <h3 className="text-lg font-semibold mb-3">Características principales</h3>
               <ul className="space-y-2">
                 {project.features.map((feature) => (
@@ -94,7 +106,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               </ul>
             </div>
             
-            <div className="flex flex-wrap gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="project-modal-actions flex flex-wrap gap-4 border-t border-gray-200 pt-4 dark:border-gray-700">
               <a 
                 href={project.demoLink}
                 target="_blank" 

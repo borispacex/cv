@@ -349,6 +349,99 @@
     .about-action .btn {
       @apply px-5 py-2.5;
     }
+
+    .projects-section {
+      @apply py-6;
+    }
+
+    .projects-section .container-custom > div:first-child {
+      @apply mb-4;
+    }
+
+    .projects-section .container-custom > div:first-child h2 {
+      @apply mb-2 text-3xl;
+    }
+
+    .projects-section .container-custom > div:first-child p {
+      @apply text-base;
+    }
+
+    .projects-section .container-custom > div:first-child div {
+      @apply mt-3;
+    }
+
+    .projects-filter {
+      @apply mb-5 mt-4 gap-2;
+    }
+
+    .projects-filter button {
+      @apply px-4 py-1.5;
+    }
+
+    .projects-grid {
+      @apply gap-4;
+    }
+
+    .project-card {
+      @apply p-4;
+    }
+
+    .project-image {
+      @apply -mx-4 -mt-4 mb-4 h-40;
+    }
+
+    .project-title {
+      @apply text-lg;
+    }
+
+    .project-description {
+      @apply mb-3 text-sm leading-relaxed;
+    }
+
+    .project-modal {
+      max-height: calc(100dvh - 2rem);
+      @apply max-w-2xl;
+    }
+
+    .project-modal-image {
+      @apply h-44;
+    }
+
+    .project-modal-content {
+      @apply p-4;
+    }
+
+    .project-modal-tags {
+      @apply mb-3 gap-1.5;
+    }
+
+    .project-modal-title {
+      @apply mb-2 text-2xl;
+    }
+
+    .project-modal-description {
+      @apply mb-4 text-sm leading-relaxed;
+    }
+
+    .project-modal-features {
+      @apply mb-4;
+    }
+
+    .project-modal-features h3 {
+      @apply mb-2 text-base;
+    }
+
+    .project-modal-features ul {
+      @apply space-y-1;
+    }
+
+    .project-modal-features li {
+      @apply text-sm;
+    }
+
+    .project-modal-actions {
+      @apply gap-3 pt-3;
+    }
   }
 }
 

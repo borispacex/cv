@@ -129,7 +129,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
           title="Mis habilidades"

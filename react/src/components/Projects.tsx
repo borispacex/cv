@@ -139,14 +139,14 @@ const Projects = () => {
   };
   
   return (
-    <section id="projects" className="section scroll-mt-20 sm:scroll-mt-24">
+    <section id="projects" className="projects-section section scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
           title="Mis proyectos"
           subtitle="Trabajos recientes que he creado"
         />
         
-        <div className="flex flex-wrap justify-center gap-3 mt-10 mb-10">
+        <div className="projects-filter mb-8 mt-8 flex flex-wrap justify-center gap-3">
           {categories.map((category) => (
             <motion.button
               key={`category-${category.id}`}
@@ -166,7 +166,7 @@ const Projects = () => {
         
         <motion.div
           key={`projects-list-${filter}`}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+          className="projects-grid grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -176,13 +176,13 @@ const Projects = () => {
             {filteredProjects.map((project) => (
               <motion.div 
                 key={`project-${project.id}`}
-                className="card overflow-hidden group"
+                className="project-card card group flex h-full flex-col overflow-hidden"
                 variants={itemVariants}
                 exit="exit"
                 layout
                 whileHover={{ y: -5 }}
               >
-                <div className="relative overflow-hidden h-48 -mx-6 -mt-6 mb-6">
+                <div className="project-image relative -mx-6 -mt-6 mb-5 h-48 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
@@ -230,12 +230,12 @@ const Projects = () => {
                   ))}
                 </div>
                 
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+                <h3 className="project-title mb-2 text-xl font-bold">{project.title}</h3>
+                <p className="project-description mb-4 text-gray-700 dark:text-gray-300">{project.description}</p>
                 
                 <button 
                   onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300"
+                  className="mt-auto inline-flex items-center self-start font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
                 >
                   <span>Más detalles</span>
                   <ArrowRight size={16} className="ml-1" />

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, CalendarDays, CheckCircle2, Code2 } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import {ExperienceItem} from "../interfaces/experience.type.ts";
 
@@ -8,7 +8,7 @@ const Experience = () => {
     {
       company: "Ministerio de Gobierno",
       position: "Técnico I – Desarrollo de Sistemas",
-      duration: "26-09-2025 a 31-12-2025",
+      duration: "Sep 2025 — Dic 2025",
       description: "Desarrollo Full Stack con Angular 17, NG-Prime, TypeScript y NestJS sobre PostgreSQL. Implementé portales institucionales y sistemas de alerta temprana para seguridad nacional.",
       achievements: [
         "Diseño e implementación de dashboards de alertas tempranas",
@@ -32,7 +32,7 @@ const Experience = () => {
     {
       company: "Digital Harbor Bolivia",
       position: "Software Developer | Mid Level",
-      duration: "05-06-2025 a 01-09-2025",
+      duration: "Jun 2025 — Sep 2025",
       description: "Desarrollo backend con Java 17, Spring Boot y Python Django en proyectos que integran APIs REST, Elasticsearch y mensajería con Kafka.",
       achievements: [
         "Creación de microservicios para procesamiento y búsqueda de datos",
@@ -56,7 +56,7 @@ const Experience = () => {
     {
       company: "Banco Unión S.A.",
       position: "Programador Proyecto CORE",
-      duration: "22-06-2023 a 04-06-2025",
+      duration: "Jun 2023 — Jun 2025",
       description: "Participé en el desarrollo del nuevo core bancario usando Java, Quarkus, Angular y Oracle. Implementé microservicios y apoyé la transición hacia arquitecturas modernas.",
       achievements: [
         "Desarrollo de módulos de API Gateway y servicios de acceso",
@@ -80,7 +80,7 @@ const Experience = () => {
     {
       company: "Banco Solidario S.A.",
       position: "Analista de Sistemas",
-      duration: "01-02-2023 a 04-05-2023",
+      duration: "Feb 2023 — May 2023",
       description: "Soporte y desarrollo en sistemas bancarios y facturación electrónica. Realicé pruebas de servicios web y coordiné pases a producción con SQL Server y .NET Core.",
       achievements: [
         "Ejecución de pruebas de rendimiento con JMeter",
@@ -103,7 +103,7 @@ const Experience = () => {
     {
       company: "DazaSoftware S.A.",
       position: "Desarrollador Full Stack",
-      duration: "01-02-2021 a 31-12-2022",
+      duration: "Feb 2021 — Dic 2022",
       description: "Desarrollo de soluciones fintech con Java, Oracle PL/SQL, JDeveloper, Oracle Forms y Flutter. Trabajé en sistemas de administración de activos, fondos de inversión y pagos interbancarios.",
       achievements: [
         "Implementación de sistemas financieros para gestión de activos y fondos",
@@ -125,7 +125,7 @@ const Experience = () => {
     {
       company: "Universidad Mayor de San Andrés",
       position: "Auxiliar de Docencia",
-      duration: "01-02-2020 a 31-12-2020",
+      duration: "Feb 2020 — Dic 2020",
       description: "Impartí clases teórico-prácticas de redes de computadores, orientando a estudiantes en diseño de redes, protocolos y herramientas de simulación.",
       achievements: [
         "Preparación de contenido para redes LAN, TCP/IP y servicios de red",
@@ -149,7 +149,7 @@ const Experience = () => {
     {
       company: "Instituto de Ecología, UMSA",
       position: "Pasante",
-      duration: "15-08-2019 a 13-12-2019",
+      duration: "Ago 2019 — Dic 2019",
       description: "Desarrollé un sistema web de seguimiento y control de proyectos de investigación para docentes e investigadores del instituto.",
       achievements: [
         "Creación de la aplicación para seguimiento de proyectos de investigación",
@@ -173,17 +173,17 @@ const Experience = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3
+        staggerChildren: 0.12
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 }
+      transition: { duration: 0.45 }
     }
   };
 
@@ -196,120 +196,96 @@ const Experience = () => {
           />
 
           <motion.div
-              className="relative mt-10"
+              className="relative mx-auto mt-10 max-w-5xl"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
           >
-            {/* Timeline center line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 transform md:-translate-x-1/2" />
+            <div
+              className="absolute bottom-3 left-[0.4375rem] top-3 w-px bg-gradient-to-b from-primary-500 via-primary-300 to-gray-200 dark:via-primary-800 dark:to-gray-800 sm:left-[0.6875rem]"
+              aria-hidden="true"
+            />
 
             {experiences.map((experience, index) => (
               <motion.div
                 key={`experience-${experience.company}`}
-                    className={`relative flex flex-col md:flex-row ${
-                        index !== experiences.length - 1 ? 'mb-8' : ''
+                    className={`relative pl-8 sm:pl-12 ${
+                        index !== experiences.length - 1 ? 'mb-6' : ''
                     }`}
                     variants={itemVariants}
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute left-0 z-10 w-5 h-5 transform border-4 border-white rounded-full md:left-1/2 bg-primary-500 dark:border-gray-900 md:-translate-x-1/2" />
+                  <div
+                    className="absolute left-0 top-6 z-10 flex h-4 w-4 items-center justify-center rounded-full bg-primary-500 ring-4 ring-white dark:ring-gray-950 sm:h-6 sm:w-6"
+                    aria-hidden="true"
+                  >
+                    <Briefcase className="hidden text-white sm:block" size={12} />
+                  </div>
 
-                  {/* Content */}
-                  <div className={`md:w-1/2 ${
-                      index % 2 === 0
-                          ? 'md:pr-12 md:text-right'
-                          : 'md:pl-12 md:ml-auto'
-                  }`}>
-
-                    <motion.div
-                        className="p-5 card md:p-6"
-                        whileHover={{ y: -5 }}
-                    >
-
-                      {/* Header */}
-                      <div className={`flex items-center gap-2 mb-1 ${
-                          index % 2 === 0 ? 'md:justify-end' : ''
-                      }`}>
-                        <Briefcase size={16} className="text-primary-500" />
-                        <h3 className="text-lg font-bold">
-                          {experience.company}
-                        </h3>
-                      </div>
-
-                      <h4 className={`text-sm font-semibold text-gray-700 dark:text-gray-300 ${
-                          index % 2 === 0 ? 'md:text-right' : ''
-                      }`}>
-                        {experience.position}
-                      </h4>
-
-                      <div className={`flex items-center gap-1 text-gray-500 mb-3 text-xs ${
-                          index % 2 === 0 ? 'md:justify-end' : ''
-                      }`}>
-                        <Calendar size={12} />
-                        <span>{experience.duration}</span>
-                      </div>
-
-                      {/* Description */}
-                      <p className={`text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed ${
-                          index % 2 === 0 ? 'md:text-right' : ''
-                      }`}>
-                        {experience.description}
-                      </p>
-
-                      {/* Content */}
-                      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-
-                        {/* Achievements */}
+                  <motion.article
+                      className="card border border-gray-100 p-5 dark:border-gray-800 md:p-6"
+                      whileHover={{ y: -3 }}
+                      transition={{ duration: 0.2 }}
+                  >
+                    <header className="mb-4 border-b border-gray-100 pb-4 dark:border-gray-800">
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                         <div>
-                          <h4 className={`text-sm font-semibold mb-2 ${
-                              index % 2 === 0 ? 'md:text-right' : ''
-                          }`}>
-                            Contenido
-                          </h4>
-
-                          <div className={`flex flex-wrap gap-2 ${
-                              index % 2 === 0 ? 'md:justify-end' : ''
-                          }`}>
-                            {experience.achievements.map((item) => (
-                              <span
-                                key={`achievement-${item}`}
-                                    className="px-2 py-1 text-xs text-gray-700 bg-gray-100 rounded-md dark:bg-gray-800 dark:text-gray-300"
-                                >
-        {item}
-      </span>
-                            ))}
-                          </div>
+                          <p className="mb-1 text-sm font-semibold text-primary-600 dark:text-primary-400">
+                            {experience.company}
+                          </p>
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                            {experience.position}
+                          </h3>
                         </div>
 
-                        {/* Technologies */}
-                        <div>
-                          <h4 className={`text-sm font-semibold mb-2 ${
-                              index % 2 === 0 ? 'md:text-right' : ''
-                          }`}>
+                        <div className="flex shrink-0 items-center gap-2 rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                          <CalendarDays size={15} aria-hidden="true" />
+                          <span>{experience.duration}</span>
+                        </div>
+                      </div>
+                    </header>
+
+                    <p className="mb-5 text-sm leading-relaxed text-gray-600 dark:text-gray-400 sm:text-base">
+                        {experience.description}
+                    </p>
+
+                    <div className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-8">
+                      <div className="lg:col-span-3">
+                          <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                            <CheckCircle2 size={16} className="text-primary-500" aria-hidden="true" />
+                            Logros principales
+                          </h4>
+                          <ul className="space-y-2">
+                            {experience.achievements.map((achievement) => (
+                              <li
+                                key={`achievement-${achievement}`}
+                                className="flex items-start gap-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400"
+                              >
+                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500" aria-hidden="true" />
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                      </div>
+
+                      <div className="lg:col-span-2">
+                          <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                            <Code2 size={16} className="text-primary-500" aria-hidden="true" />
                             Tecnologías
                           </h4>
-
-                          <div className={`flex flex-wrap gap-2 ${
-                              index % 2 === 0 ? 'md:justify-end' : ''
-                          }`}>
+                          <div className="flex flex-wrap gap-2">
                             {experience.technologies.map((tech) => (
                               <span
                                 key={`tech-${tech}`}
-                                    className="px-2 py-1 text-xs rounded-md bg-primary-500/10 text-primary-600 dark:text-primary-400"
-                                >
-                        {tech}
-                      </span>
+                                className="rounded-full border border-primary-200 bg-primary-50 px-2.5 py-1 text-xs font-medium text-primary-700 dark:border-primary-900 dark:bg-primary-950/50 dark:text-primary-300"
+                              >
+                                {tech}
+                              </span>
                             ))}
                           </div>
-                        </div>
-
                       </div>
-
-                    </motion.div>
-
-                  </div>
+                    </div>
+                  </motion.article>
                 </motion.div>
             ))}
           </motion.div>

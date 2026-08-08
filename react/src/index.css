@@ -252,6 +252,26 @@
     .contact-form button[type='submit'] {
       @apply py-2.5;
     }
+
+    .footer-inner {
+      @apply py-5;
+    }
+
+    .footer-top {
+      @apply gap-4;
+    }
+
+    .footer-social a {
+      @apply h-9 w-9;
+    }
+
+    .footer-divider {
+      @apply mt-4;
+    }
+
+    .footer-bottom {
+      @apply mt-4;
+    }
   }
 }
 

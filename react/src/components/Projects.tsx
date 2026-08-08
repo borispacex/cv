@@ -139,7 +139,7 @@ const Projects = () => {
   };
   
   return (
-    <section id="projects" className="section bg-gray-50 dark:bg-gray-900/50">
+    <section id="projects" className="section scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
           title="Mis proyectos"

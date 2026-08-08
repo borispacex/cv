@@ -10,16 +10,18 @@ const Footer = () => {
   };
 
   return (
-      <footer className="bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
-        <div className="container-custom py-10">
+      <footer className="footer-section border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
+        <div className="footer-inner container-custom py-8 sm:py-10">
 
           {/* 🔹 TOP */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="footer-top flex flex-col items-center justify-between gap-5 sm:flex-row">
 
             {/* Branding */}
             <motion.a
-                href="#about">
-              <div className="text-center md:text-left">
+                href="#about"
+                aria-label="Ir a la sección Acerca de mí"
+            >
+              <div className="text-center sm:text-left">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
                   Boris Vargas
                 </h3>
@@ -31,7 +33,7 @@ const Footer = () => {
 
 
             {/* Social */}
-            <div className="flex gap-4">
+            <div className="footer-social flex gap-3 sm:gap-4">
               {[
                 {
                   href: "https://www.facebook.com/boris.vargaspaucara.9",
@@ -80,10 +82,10 @@ const Footer = () => {
           </div>
 
           {/* 🔹 DIVIDER */}
-          <div className="mt-8 border-t border-gray-200 dark:border-gray-800" />
+          <div className="footer-divider mt-6 border-t border-gray-200 dark:border-gray-800 sm:mt-8" />
 
           {/* 🔹 BOTTOM */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="footer-bottom mt-5 flex flex-col items-center justify-between gap-3 sm:flex-row sm:gap-4">
 
             <p className="text-sm text-gray-500 dark:text-gray-400 text-center sm:text-left">
               © {new Date().getFullYear()} Boris Vargas. Todos los derechos reservados.
@@ -93,6 +95,7 @@ const Footer = () => {
                 onClick={scrollToTop}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="Volver al inicio de la página"
                 className="flex items-center gap-2 text-sm
             text-gray-600 dark:text-gray-400
             hover:text-primary-500 dark:hover:text-primary-400

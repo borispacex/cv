@@ -172,7 +172,7 @@ const Experience = () => {
   ];
 
   return (
-      <section id="experience" className="experience-section section scroll-mt-24">
+      <section id="experience" className="experience-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-24">
         <div className="container-custom">
           <SectionHeading
               title="Experiencia laboral"

@@ -109,7 +109,7 @@ const Contact = () => {
   };
   
   return (
-    <section id="contact" className="contact-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-20 sm:scroll-mt-24">
+    <section id="contact" className="contact-section section scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
           title="Ponte en contacto"

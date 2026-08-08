@@ -49,13 +49,13 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="section bg-gray-50 dark:bg-gray-900/50">
+    <section id="about" className="about-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading title="Acerca de mí" subtitle="Conóceme mejor" />
         
-        <div className="grid grid-cols-1 gap-8 mt-10 lg:grid-cols-2 lg:gap-12">
+        <div className="about-grid mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
           <motion.div
-            className="relative overflow-hidden shadow-xl rounded-2xl"
+            className="about-photo relative overflow-hidden shadow-xl rounded-2xl"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -76,7 +76,7 @@ const About = () => {
             </div>
           </motion.div>
           
-          <div className="flex flex-col justify-center">
+          <div className="about-content flex flex-col justify-center">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -84,23 +84,23 @@ const About = () => {
               variants={fadeInUpVariants}
               custom={2}
             >
-              <h3 className="mb-4 text-2xl font-bold">Quien soy</h3>
-              <p className="mb-6 leading-relaxed text-gray-700 dark:text-gray-300">
+              <h3 className="about-title mb-4 text-2xl font-bold">Quien soy</h3>
+              <p className="about-description mb-6 leading-relaxed text-gray-700 dark:text-gray-300">
                 {aboutData.description}
               </p>
-              <p className="mb-8 leading-relaxed text-gray-700 dark:text-gray-300">
+              <p className="about-bio mb-8 leading-relaxed text-gray-700 dark:text-gray-300">
                 {aboutData.bio}
               </p>
             </motion.div>
             
-            <div>
+            <div className="about-contact-list">
                 {aboutData.contactInfo.map((item, index) => (
                   <motion.a
                     key={`contact-${item.title}`}
                       href={item.link}
                       target={item.title === "Dirección" ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      className="flex items-start p-4 my-2 transition-colors card hover:bg-gray-50 dark:hover:bg-gray-800"
+                      className="about-contact-card card my-2 flex items-start p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
                       variants={contactVariants}
                       custom={index}
                       initial="hidden"
@@ -108,11 +108,11 @@ const About = () => {
                       viewport={{ once: true, margin: "-100px" }}
                       whileHover={{ y: -5 }}
                   >
-                    <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mr-4 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
+                    <div className="about-contact-icon mr-4 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="mb-1 text-lg font-semibold">{item.title}</h4>
+                      <h4 className="about-contact-title mb-1 text-lg font-semibold">{item.title}</h4>
                       <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
                     </div>
                   </motion.a>
@@ -120,7 +120,7 @@ const About = () => {
             </div>
             
             <motion.div 
-              className="mt-8"
+              className="about-action mt-8"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}

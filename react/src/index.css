@@ -109,11 +109,11 @@
     .hero-section {
       min-height: 100svh;
       height: 100svh;
-      padding-top: 3.5rem;
+      padding: 4rem 0 2rem;
     }
 
     .hero-content {
-      transform: translateY(-0.5rem);
+      transform: translateY(-0.75rem);
     }
 
     .hero-badge,
@@ -144,7 +144,7 @@
     }
 
     .hero-scroll {
-      @apply bottom-4;
+      @apply bottom-3;
     }
 
     .hero-scroll span {
@@ -275,6 +275,79 @@
 
     .footer-bottom {
       @apply mt-4;
+    }
+
+    .about-section {
+      @apply py-6;
+    }
+
+    .about-section .container-custom > div:first-child {
+      @apply mb-4;
+    }
+
+    .about-section .container-custom > div:first-child h2 {
+      @apply mb-2 text-3xl;
+    }
+
+    .about-section .container-custom > div:first-child p {
+      @apply text-base;
+    }
+
+    .about-section .container-custom > div:first-child div {
+      @apply mt-3;
+    }
+
+    .about-grid {
+      @apply mt-4 gap-6;
+    }
+
+    .about-photo {
+      max-height: 31rem;
+    }
+
+    .about-title {
+      @apply mb-2 text-xl;
+    }
+
+    .about-description,
+    .about-bio {
+      @apply text-sm leading-relaxed;
+    }
+
+    .about-description {
+      @apply mb-3;
+    }
+
+    .about-bio {
+      @apply mb-4;
+    }
+
+    .about-contact-card {
+      @apply my-1 p-2.5;
+    }
+
+    .about-contact-icon {
+      @apply mr-3 h-9 w-9;
+    }
+
+    .about-contact-icon svg {
+      @apply h-5 w-5;
+    }
+
+    .about-contact-title {
+      @apply mb-0 text-sm;
+    }
+
+    .about-contact-card p {
+      @apply break-all text-xs;
+    }
+
+    .about-action {
+      @apply mt-4;
+    }
+
+    .about-action .btn {
+      @apply px-5 py-2.5;
     }
   }
 }

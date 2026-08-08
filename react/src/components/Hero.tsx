@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="hero-section relative min-h-[calc(100vh-4rem)] lg:h-screen flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="hero-section relative flex min-h-svh items-center justify-center overflow-hidden py-24 sm:py-20 lg:h-screen lg:py-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-slate-100 dark:from-gray-900 dark:to-gray-950 opacity-80" />
       
@@ -47,7 +47,7 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-4 py-1.5 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
               Software Developer | Junior DevOps
             </span>
           </motion.div>

@@ -9,8 +9,6 @@ interface ProjectModalProps {
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  if (!project) return null;
-
   const backdropVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 }
@@ -30,6 +28,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClose]);
+
+  if (!project) return null;
 
   return (
     <AnimatePresence>

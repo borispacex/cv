@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-[calc(100vh-4rem)] lg:h-screen flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="hero-section relative min-h-[calc(100vh-4rem)] lg:h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-slate-100 dark:from-gray-900 dark:to-gray-950 opacity-80" />
       
@@ -40,9 +40,9 @@ const Hero = () => {
       </div>
       
       <div className="container-custom relative z-10">
-        <div className="flex flex-col items-center text-center">
+        <div className="hero-content flex flex-col items-center text-center">
           <motion.div
-            className="mb-6"
+            className="hero-badge mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -53,7 +53,7 @@ const Hero = () => {
           </motion.div>
           
           <motion.h1 
-            className="mb-6 leading-tight max-w-2xl text-4xl sm:text-5xl md:text-5xl lg:text-5xl"
+            className="hero-title mb-6 leading-tight max-w-2xl text-4xl sm:text-5xl md:text-5xl lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -62,14 +62,14 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-              className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-lg mb-4"
+              className="hero-intro text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-lg mb-4"
               {...fadeUp}
           >
             Soy <span className="text-gradient">Boris Vargas</span>, desarrollador Full Stack con foco en Backend, DevOps y sistemas empresariales.
           </motion.p>
 
           <motion.p
-              className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed mb-8"
+              className="hero-description text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -77,7 +77,7 @@ const Hero = () => {
             Diseño soluciones confiables con Java, TypeScript, APIs REST y despliegues automatizados para proyectos de alto impacto.
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row flex-wrap gap-4 mb-8"
+            className="hero-actions flex flex-col sm:flex-row flex-wrap gap-4 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
@@ -103,7 +103,7 @@ const Hero = () => {
           </motion.div>
           
           <motion.div
-            className="flex gap-6"
+            className="hero-social flex gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
@@ -164,7 +164,7 @@ const Hero = () => {
       
       <motion.a
         href="#about"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400"
+        className="hero-scroll absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 

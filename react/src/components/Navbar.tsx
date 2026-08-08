@@ -3,20 +3,20 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import {NavbarProps, NavLink} from "../interfaces/navbar.type.ts";
 
+const navLinks: NavLink[] = [
+  { id: 'inicio', label: 'Inicio' },
+  { id: 'about', label: 'Acerca de mi' },
+  { id: 'skills', label: 'Habilidades' },
+  { id: 'education', label: 'Educación' },
+  { id: 'projects', label: 'Proyectos' },
+  { id: 'experience', label: 'Experiencia' },
+  { id: 'contact', label: 'Contacto' },
+];
+
 const Navbar: React.FC<NavbarProps> = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
-  
-  const navLinks: NavLink[]  = [
-    { id: 'inicio', label: 'Inicio' },
-    { id: 'about', label: 'Acerca de mi' },
-    { id: 'skills', label: 'Habilidades' },
-    { id: 'education', label: 'Educación' },
-    { id: 'projects', label: 'Proyectos' },
-    { id: 'experience', label: 'Experiencia' },
-    { id: 'contact', label: 'Contacto' },
-  ];
   
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = () => {
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [navLinks]);
+  }, []);
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
@@ -47,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         isScrolled ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}
     >
-      <div className="container-custom py-4 flex items-center justify-between">
+      <div className="navbar-inner container-custom py-4 flex items-center justify-between">
         <motion.a 
           href="#inicio"
           className="flex items-center gap-2 font-bold text-2xl"
@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         </motion.a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden lg:flex items-center space-x-1">
           <motion.div 
             className="flex space-x-1"
             initial={{ opacity: 0, y: -10 }}
@@ -96,7 +96,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         
         {/* Mobile Menu Button */}
         <motion.button
-          className="md:hidden btn btn-outline p-2"
+          className="lg:hidden btn btn-outline p-2"
           onClick={toggleMenu}
           whileTap={{ scale: 0.9 }}
           aria-label="Toggle Menu"
@@ -108,7 +108,7 @@ const Navbar: React.FC<NavbarProps> = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <motion.div
-          className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
+          className="lg:hidden bg-white dark:bg-gray-900 shadow-lg"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}

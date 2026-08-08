@@ -99,6 +99,58 @@
       @apply px-3 py-2;
     }
   }
+
+  /* Viewport base para las pantallas de trabajo más comunes (1366 x 768). */
+  @media (min-width: 1024px) and (max-width: 1366px) and (max-height: 800px) {
+    .navbar-inner {
+      @apply py-3;
+    }
+
+    .hero-section {
+      min-height: 100svh;
+      height: 100svh;
+      padding-top: 3.5rem;
+    }
+
+    .hero-content {
+      transform: translateY(-0.5rem);
+    }
+
+    .hero-badge,
+    .hero-title {
+      @apply mb-4;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      line-height: 1.05;
+      max-width: 42rem;
+    }
+
+    .hero-intro {
+      @apply mb-3 text-lg;
+    }
+
+    .hero-description {
+      @apply mb-5 text-base;
+    }
+
+    .hero-actions {
+      @apply mb-5 gap-3;
+    }
+
+    .hero-actions .btn {
+      @apply px-5 py-2.5;
+    }
+
+    .hero-scroll {
+      @apply bottom-4;
+    }
+
+    .hero-scroll span {
+      @apply mb-1;
+    }
+  }
 }
 
 /* Custom styles */

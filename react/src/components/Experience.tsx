@@ -1,9 +1,12 @@
-import { motion } from 'framer-motion';
-import { Briefcase, CalendarDays, CheckCircle2, Code2 } from 'lucide-react';
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Briefcase, CalendarDays, CheckCircle2, ChevronDown, Code2 } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import {ExperienceItem} from "../interfaces/experience.type.ts";
 
 const Experience = () => {
+  const [openExperience, setOpenExperience] = useState<number | null>(null);
+
   const experiences: ExperienceItem[] = [
     {
       company: "Ministerio de Gobierno",
@@ -168,25 +171,6 @@ const Experience = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.45 }
-    }
-  };
-
   return (
       <section id="experience" className="section scroll-mt-24">
         <div className="container-custom">
@@ -196,61 +180,96 @@ const Experience = () => {
           />
 
           <motion.div
-              className="relative mx-auto mt-10 max-w-5xl"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
+              className="relative mx-auto mt-10 max-w-4xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
           >
             <div
-              className="absolute bottom-3 left-[0.4375rem] top-3 w-px bg-gradient-to-b from-primary-500 via-primary-300 to-gray-200 dark:via-primary-800 dark:to-gray-800 sm:left-[0.6875rem]"
+              className="absolute bottom-6 left-4 top-6 w-0.5 bg-gradient-to-b from-primary-500 via-primary-300 to-gray-200 dark:via-primary-800 dark:to-gray-800"
               aria-hidden="true"
             />
 
+            <div className="space-y-3 pl-10">
             {experiences.map((experience, index) => (
-              <motion.div
+              <article
                 key={`experience-${experience.company}`}
-                    className={`relative pl-8 sm:pl-12 ${
-                        index !== experiences.length - 1 ? 'mb-6' : ''
-                    }`}
-                    variants={itemVariants}
+                className={`relative overflow-visible rounded-xl border bg-white shadow-sm transition-colors dark:bg-gray-900 ${
+                  openExperience === index
+                    ? 'border-primary-300 dark:border-primary-800'
+                    : 'border-gray-200 hover:border-primary-200 dark:border-gray-800 dark:hover:border-primary-900'
+                }`}
+              >
+                <span
+                  className={`absolute -left-8 top-6 z-10 h-5 w-5 rounded-full border-4 border-white transition-colors dark:border-gray-950 ${
+                    openExperience === index
+                      ? 'bg-primary-500 ring-4 ring-primary-100 dark:ring-primary-950'
+                      : 'bg-gray-300 dark:bg-gray-700'
+                  }`}
+                  aria-hidden="true"
+                />
+
+                <button
+                  type="button"
+                  className="flex w-full items-center gap-3 p-4 text-left sm:gap-4 sm:p-5"
+                  onClick={() => setOpenExperience(openExperience === index ? null : index)}
+                  aria-expanded={openExperience === index}
+                  aria-controls={`experience-panel-${index}`}
                 >
-                  <div
-                    className="absolute left-0 top-6 z-10 flex h-4 w-4 items-center justify-center rounded-full bg-primary-500 ring-4 ring-white dark:ring-gray-950 sm:h-6 sm:w-6"
-                    aria-hidden="true"
-                  >
-                    <Briefcase className="hidden text-white sm:block" size={12} />
-                  </div>
+                  <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors sm:h-12 sm:w-12 ${
+                    openExperience === index
+                      ? 'bg-primary-500 text-white'
+                      : 'bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400'
+                  }`}>
+                    <Briefcase size={20} aria-hidden="true" />
+                  </span>
 
-                  <motion.article
-                      className="card border border-gray-100 p-5 dark:border-gray-800 md:p-6"
-                      whileHover={{ y: -3 }}
-                      transition={{ duration: 0.2 }}
-                  >
-                    <header className="mb-4 border-b border-gray-100 pb-4 dark:border-gray-800">
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                        <div>
-                          <p className="mb-1 text-sm font-semibold text-primary-600 dark:text-primary-400">
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-base font-bold text-gray-900 dark:text-white sm:text-lg">
+                      {experience.position}
+                    </span>
+                    <span className="mt-0.5 block text-sm font-semibold text-primary-600 dark:text-primary-400">
                             {experience.company}
-                          </p>
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                            {experience.position}
-                          </h3>
-                        </div>
+                    </span>
+                  </span>
 
-                        <div className="flex shrink-0 items-center gap-2 rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                  <span className="hidden shrink-0 items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 sm:flex">
+                    <CalendarDays size={15} aria-hidden="true" />
+                    {experience.duration}
+                  </span>
+
+                  <ChevronDown
+                    size={20}
+                    className={`shrink-0 text-gray-400 transition-transform duration-300 ${
+                      openExperience === index ? 'rotate-180 text-primary-500' : ''
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {openExperience === index && (
+                    <motion.div
+                      id={`experience-panel-${index}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-gray-100 px-4 pb-5 pt-4 dark:border-gray-800 sm:px-5 sm:pb-6">
+                        <div className="mb-4 flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 sm:hidden">
                           <CalendarDays size={15} aria-hidden="true" />
-                          <span>{experience.duration}</span>
+                          {experience.duration}
                         </div>
-                      </div>
-                    </header>
 
-                    <p className="mb-5 text-sm leading-relaxed text-gray-600 dark:text-gray-400 sm:text-base">
-                        {experience.description}
-                    </p>
+                        <p className="mb-5 text-sm leading-relaxed text-gray-600 dark:text-gray-400 sm:text-base">
+                          {experience.description}
+                        </p>
 
-                    <div className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-8">
-                      <div className="lg:col-span-3">
+                        <div className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-8">
+                          <div className="lg:col-span-3">
                           <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
                             <CheckCircle2 size={16} className="text-primary-500" aria-hidden="true" />
                             Logros principales
@@ -266,9 +285,9 @@ const Experience = () => {
                               </li>
                             ))}
                           </ul>
-                      </div>
+                          </div>
 
-                      <div className="lg:col-span-2">
+                          <div className="lg:col-span-2">
                           <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
                             <Code2 size={16} className="text-primary-500" aria-hidden="true" />
                             Tecnologías
@@ -283,11 +302,15 @@ const Experience = () => {
                               </span>
                             ))}
                           </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </motion.article>
-                </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </article>
             ))}
+            </div>
           </motion.div>
         </div>
       </section>

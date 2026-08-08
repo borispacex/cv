@@ -109,25 +109,25 @@ const Contact = () => {
   };
   
   return (
-    <section id="contact" className="section bg-gray-50 dark:bg-gray-900/50">
+    <section id="contact" className="contact-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
           title="Ponte en contacto"
           subtitle="Iniciemos una conversación"
         />
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+        <div className="contact-layout mt-8 grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-8">
           <motion.div
             variants={formVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <div className="card">
-              <h3 className="text-2xl font-bold mb-6">Envíame un mensaje</h3>
+            <div className="contact-form-card card">
+              <h3 className="contact-form-title mb-5 text-2xl font-bold">Envíame un mensaje</h3>
               
-              <form onSubmit={handleSubmit}>
-                <div className="mb-4">
+              <form onSubmit={handleSubmit} className="contact-form grid grid-cols-1 gap-x-4 lg:grid-cols-2">
+                <div className="contact-field mb-4">
                   <label htmlFor="name" className="block text-sm font-medium mb-1">
                     Tu nombre
                   </label>
@@ -149,7 +149,7 @@ const Contact = () => {
                   )}
                 </div>
                 
-                <div className="mb-4">
+                <div className="contact-field mb-4">
                   <label htmlFor="email" className="block text-sm font-medium mb-1">
                     Tu correo electrónico
                   </label>
@@ -171,7 +171,7 @@ const Contact = () => {
                   )}
                 </div>
                 
-                <div className="mb-4">
+                <div className="contact-field mb-4 lg:col-span-2">
                   <label htmlFor="subject" className="block text-sm font-medium mb-1">
                     Asunto
                   </label>
@@ -193,7 +193,7 @@ const Contact = () => {
                   )}
                 </div>
                 
-                <div className="mb-6">
+                <div className="contact-message mb-6 lg:col-span-2">
                   <label htmlFor="message" className="block text-sm font-medium mb-1">
                     Tu mensaje
                   </label>
@@ -202,7 +202,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={5}
+                    rows={4}
                     className={`w-full px-4 py-2 rounded-md border ${
                       errors.message 
                         ? 'border-red-500 focus:ring-red-500' 
@@ -217,7 +217,7 @@ const Contact = () => {
                 
                 <motion.button
                   type="submit"
-                  className={`btn btn-primary w-full py-3 flex items-center justify-center ${
+                  className={`btn btn-primary w-full py-3 flex items-center justify-center lg:col-span-2 ${
                     isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
                   }`}
                   disabled={isSubmitting}
@@ -264,13 +264,13 @@ const Contact = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="card bg-gradient-to-br from-primary-600 to-secondary-600 text-white">
+              <div className="contact-cta card bg-gradient-to-br from-primary-600 to-secondary-600 text-white">
                 <h4 className="text-xl font-bold mb-3">Trabajemos juntos</h4>
                 <p className="mb-4">
                   ¿Tienes algún proyecto en mente? Actualmente estoy disponible para trabajar.
                 </p>
                 <a
-                    href="borisvargaspaucara@gmail.com"
+                    href="mailto:borisvargaspaucara@gmail.com"
                     className="inline-block px-6 py-2 bg-white text-primary-600 rounded-md font-medium hover:bg-gray-100 transition-colors"
                 >
                   Inicia una conversación

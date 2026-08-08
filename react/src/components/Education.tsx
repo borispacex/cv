@@ -1,20 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {Award, GraduationCap, School} from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import {EducationItem} from "../interfaces/education.type.ts";
-
-const getIcon = (degree: string) => {
-	if (degree.includes("Licenciatura")) return <GraduationCap size={20} />;
-	if (degree.includes("Diplomatura")) return <Award size={20} />;
-	if (degree.includes("Secundaria")) return <School size={20} />;
-
-	return <GraduationCap size={20} />;
-};
 
 const educationData: EducationItem[] = [
 	{
 		date: 'Agosto 2024 - Enero 2025',
+		logo: `${import.meta.env.BASE_URL}image/education/usfa.webp`,
 		degree: 'Diplomatura',
 		institution: 'Postgrado, Instituto de Posgrado y Educación Continua (USFA)',
 		specialty: 'Emprendimiento e innovación',
@@ -22,6 +14,7 @@ const educationData: EducationItem[] = [
 	},
 	{
 		date: 'Febrero 2024 - Junio 2024',
+		logo: `${import.meta.env.BASE_URL}image/education/udi.jpg`,
 		degree: 'Diplomatura',
 		institution: 'Postgrado, Universidad para el Desarrollo y la Innovación (UDI)',
 		specialty: 'Fundamentos en DevOps',
@@ -29,6 +22,7 @@ const educationData: EducationItem[] = [
 	},
 	{
 		date: 'Noviembre 2023 - Mayo 2024',
+		logo: `${import.meta.env.BASE_URL}image/education/univalle.png`,
 		degree: 'Diplomatura',
 		institution: 'Postgrado, Universidad del Valle (UNIVALLE)',
 		specialty: 'Desarrollo y Administración de Sistemas Web Empresariales',
@@ -36,6 +30,7 @@ const educationData: EducationItem[] = [
 	},
 	{
 		date: 'Marzo 2023 - Septiembre 2023',
+		logo: `${import.meta.env.BASE_URL}image/education/univalle.png`,
 		degree: 'Diplomatura',
 		institution: 'Postgrado, Universidad del Valle (UNIVALLE)',
 		specialty: 'Auditoría Informática',
@@ -43,6 +38,7 @@ const educationData: EducationItem[] = [
 	},
 	{
 		date: '2015 - 2021',
+		logo: `${import.meta.env.BASE_URL}image/education/umsa.png`,
 		degree: 'Licenciatura',
 		institution: 'Informática, Universidad Mayor de San Andrés (UMSA)',
 		specialty: 'Ingeniería de Sistemas Informáticos',
@@ -50,6 +46,7 @@ const educationData: EducationItem[] = [
 	},
 	{
 		date: '2010 - 2013',
+		logo: `${import.meta.env.BASE_URL}image/education/la-salle.jpg`,
 		degree: 'Secundaria',
 		institution: 'Colegio La Salle, La Paz - Bolivia',
 		specialty: 'Bachiller en Humanidades',
@@ -82,9 +79,21 @@ const Education: React.FC = () => {
 								boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)"
 							}}
 						>
-							{/* ICONO IGUAL QUE STATS */}
-							<div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center mb-3">
-								{getIcon(item.degree)}
+							<div className={`mb-3 flex h-12 items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-white p-1.5 shadow-sm dark:border-gray-700 dark:bg-gray-100 sm:h-14 ${
+								item.institution.includes('La Salle') || item.institution.includes('USFA')
+									? 'w-20 sm:w-24'
+									: 'w-12 sm:w-14'
+							}`}>
+								<img
+									src={item.logo}
+									alt={`Logo de ${item.institution}`}
+									className={`h-full w-full ${
+										item.institution.includes('La Salle')
+											? 'scale-110 object-cover object-[center_42%]'
+											: 'object-contain'
+									}`}
+									loading="lazy"
+								/>
 							</div>
 
 							{/* Fecha */}

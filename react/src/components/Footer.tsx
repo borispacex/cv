@@ -1,4 +1,4 @@
-import {ArrowUp, Github, Linkedin, Facebook, Instagram, Twitter} from 'lucide-react';
+import { ArrowUp, Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -10,7 +10,8 @@ const Footer = () => {
   };
 
   return (
-      <footer className="footer-section border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
+      <footer className="footer-section relative overflow-hidden border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent" aria-hidden="true" />
         <div className="footer-inner container-custom py-8 sm:py-10">
 
           {/* 🔹 TOP */}
@@ -19,9 +20,10 @@ const Footer = () => {
             {/* Branding */}
             <motion.a
                 href="#about"
+                className="group"
                 aria-label="Ir a la sección Acerca de mí"
             >
-              <div className="text-center sm:text-left">
+              <div className="text-left">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
                   Boris Vargas
                 </h3>
@@ -68,8 +70,8 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       aria-label={item.label}
                       whileHover={{ y: -3, scale: 1.05 }}
-                      className="w-10 h-10 rounded-full
-                bg-gray-100 dark:bg-gray-800
+                      className="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700
+                bg-gray-50 dark:bg-gray-900
                 flex items-center justify-center
                 text-gray-600 dark:text-gray-300
                 hover:bg-primary-500 hover:text-white

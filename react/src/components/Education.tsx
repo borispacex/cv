@@ -79,7 +79,7 @@ const Education: React.FC = () => {
 								boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)"
 							}}
 						>
-							<div className={`mb-3 flex h-12 items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-white p-1.5 shadow-sm dark:border-gray-700 dark:bg-gray-100 sm:h-14 ${
+							<div className={`mb-3 flex h-12 items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-white p-1.5 shadow-sm transition-colors dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/20 sm:h-14 ${
 								item.institution.includes('La Salle') || item.institution.includes('USFA')
 									? 'w-20 sm:w-24'
 									: 'w-12 sm:w-14'
@@ -87,7 +87,7 @@ const Education: React.FC = () => {
 								<img
 									src={item.logo}
 									alt={`Logo de ${item.institution}`}
-									className={`h-full w-full ${
+									className={`h-full w-full transition-[filter] dark:brightness-[0.85] ${
 										item.institution.includes('La Salle')
 											? 'scale-110 object-cover object-[center_42%]'
 											: 'object-contain'

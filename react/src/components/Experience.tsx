@@ -35,7 +35,7 @@ const Experience = () => {
     },
     {
       company: "Digital Harbor Bolivia",
-      logo: `${import.meta.env.BASE_URL}image/companies/digital-harbor.png`,
+      logo: `${import.meta.env.BASE_URL}image/companies/digital-harbor.jpg`,
       position: "Software Developer | Mid Level",
       duration: "Jun 2025 — Sep 2025",
       description: "Desarrollo backend con Java 17, Spring Boot y Python Django en proyectos que integran APIs REST, Elasticsearch y mensajería con Kafka.",
@@ -248,13 +248,17 @@ const Experience = () => {
                 >
                   <span className={`experience-icon flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border p-1.5 transition-all sm:h-12 sm:w-12 ${
                     openExperience === index
-                      ? 'border-primary-300 bg-white shadow-sm dark:border-primary-700 dark:bg-gray-100'
-                      : 'border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-100'
+                      ? 'border-primary-300 bg-white shadow-sm dark:border-primary-700 dark:bg-gray-800 dark:shadow-black/20'
+                      : 'border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800'
                   }`}>
                     <img
                       src={experience.logo}
                       alt={`Logo de ${experience.company}`}
-                      className="h-full w-full object-contain"
+                      className={`h-full w-full object-contain transition-[filter] ${
+                        experience.company.includes('DazaSoftware')
+                          ? 'dark:brightness-0 dark:invert'
+                          : 'dark:brightness-[0.85]'
+                      }`}
                       loading="lazy"
                     />
                   </span>

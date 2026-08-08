@@ -43,7 +43,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         onClick={onClose}
       >
         <motion.div
-          className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+          className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
           variants={modalVariants}
           initial="hidden"
           animate="visible"

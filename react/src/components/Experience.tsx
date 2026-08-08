@@ -196,7 +196,7 @@ const Experience = () => {
           />
 
           <motion.div
-              className="relative mt-12"
+              className="relative mt-10"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -209,7 +209,7 @@ const Experience = () => {
               <motion.div
                 key={`experience-${experience.company}`}
                     className={`relative flex flex-col md:flex-row ${
-                        index !== experiences.length - 1 ? 'mb-12' : ''
+                        index !== experiences.length - 1 ? 'mb-8' : ''
                     }`}
                     variants={itemVariants}
                 >

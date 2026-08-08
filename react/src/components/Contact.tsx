@@ -116,7 +116,7 @@ const Contact = () => {
           subtitle="Iniciemos una conversación"
         />
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
           <motion.div
             variants={formVariants}
             initial="hidden"

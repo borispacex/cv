@@ -53,7 +53,7 @@ const About = () => {
       <div className="container-custom">
         <SectionHeading title="Acerca de mí" subtitle="Conóceme mejor" />
         
-        <div className="grid grid-cols-1 gap-10 mt-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-8 mt-10 lg:grid-cols-2 lg:gap-12">
           <motion.div
             className="relative overflow-hidden shadow-xl rounded-2xl"
             initial="hidden"

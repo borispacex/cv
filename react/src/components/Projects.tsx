@@ -146,11 +146,11 @@ const Projects = () => {
           subtitle="Trabajos recientes que he creado"
         />
         
-        <div className="flex flex-wrap justify-center gap-4 mt-12 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mt-10 mb-10">
           {categories.map((category) => (
             <motion.button
               key={`category-${category.id}`}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === category.id
                   ? 'bg-primary-500 text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
@@ -166,7 +166,7 @@ const Projects = () => {
         
         <motion.div
           key={`projects-list-${filter}`}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

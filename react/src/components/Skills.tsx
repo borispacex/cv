@@ -84,8 +84,8 @@ const Skills = () => {
           subtitle="Tecnologías que he dominado"
         />
         
-        <div className="mt-12">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="mt-10">
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
             {categories.map((category) => (
               <motion.button
                 key={`category-${category.id}`}

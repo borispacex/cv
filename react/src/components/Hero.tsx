@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="relative min-h-[calc(100vh-4rem)] lg:h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-slate-100 dark:from-gray-900 dark:to-gray-950 opacity-80" />
       
@@ -53,7 +53,7 @@ const Hero = () => {
           </motion.div>
           
           <motion.h1 
-            className="mb-6 leading-tight max-w-4xl"
+            className="mb-6 leading-tight max-w-2xl text-4xl sm:text-5xl md:text-5xl lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -62,14 +62,14 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-              className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mb-4"
+              className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-lg mb-4"
               {...fadeUp}
           >
             Soy <span className="text-gradient">Boris Vargas</span>, desarrollador Full Stack con foco en Backend, DevOps y sistemas empresariales.
           </motion.p>
 
           <motion.p
-              className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed mb-10"
+              className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -77,7 +77,7 @@ const Hero = () => {
             Diseño soluciones confiables con Java, TypeScript, APIs REST y despliegues automatizados para proyectos de alto impacto.
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 mb-12"
+            className="flex flex-col sm:flex-row flex-wrap gap-4 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
@@ -86,7 +86,7 @@ const Hero = () => {
                 href="https://drive.google.com/file/d/1JM5-nCUgeT1izmJ3iCgCqbYOrgCRp6_-/view?usp=share_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary px-8 py-3"
+                className="btn btn-primary px-6 py-3"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
@@ -94,7 +94,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="#contact"
-              className="btn btn-outline px-8 py-3"
+              className="btn btn-outline px-6 py-3"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

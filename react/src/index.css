@@ -109,16 +109,16 @@
     .hero-section {
       min-height: 100svh;
       height: 100svh;
-      padding: 4rem 0 2rem;
+      padding: 5rem 0 1.5rem;
     }
 
     .hero-content {
-      transform: translateY(-0.75rem);
+      transform: none;
     }
 
     .hero-badge,
     .hero-title {
-      @apply mb-4;
+      @apply mb-3;
     }
 
     .hero-title {
@@ -128,15 +128,15 @@
     }
 
     .hero-intro {
-      @apply mb-3 text-lg;
+      @apply mb-2 text-lg;
     }
 
     .hero-description {
-      @apply mb-5 text-base;
+      @apply mb-3 text-base;
     }
 
     .hero-actions {
-      @apply mb-5 gap-3;
+      @apply mb-3 gap-3;
     }
 
     .hero-actions .btn {
@@ -144,11 +144,9 @@
     }
 
     .hero-scroll {
-      @apply bottom-3;
-    }
-
-    .hero-scroll span {
-      @apply mb-1;
+      bottom: 0.75rem !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
     }
 
     .experience-section {

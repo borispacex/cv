@@ -6,8 +6,8 @@ import {AboutData} from "../interfaces/about.type.ts";
 const About = () => {
   const aboutData: AboutData = {
     image: `${import.meta.env.BASE_URL}image/profile.jpg`,
-    description: `Desarrollador Full Stack con experiencia en proyectos de alto impacto en el sector público y financiero. Especializado en microservicios, APIs y desarrollo web moderno con Java, Spring Boot, Angular, .NET y PostgreSQL. Domino herramientas DevOps como Docker, Jenkins y despliegues automatizados.`,
-    bio: `Soy un profesional orientado a resultados, comprometido con la calidad y con la capacidad de adaptar arquitecturas a necesidades reales de negocio. Trabajo de forma colaborativa y siempre busco maximizar la escalabilidad y el rendimiento de cada solución.`,
+    description: `Desarrollador de software con experiencia en el análisis, diseño, implementación y soporte de sistemas empresariales para los sectores público, bancario y fintech. He trabajado con Java, Spring Boot, Quarkus, Angular, .NET, NestJS, PostgreSQL y Oracle.`,
+    bio: `Experiencia en APIs REST, microservicios, integración de servicios y despliegues con Docker, Jenkins y Kubernetes. Me caracterizo por el trabajo colaborativo, la resolución de problemas y la orientación a resultados.`,
     contactInfo: [
       {
         icon: <Mail size={24} />,
@@ -51,7 +51,7 @@ const About = () => {
   return (
     <section id="about" className="about-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
-        <SectionHeading title="Acerca de mí" subtitle="Conóceme mejor" />
+        <SectionHeading title="Acerca de mí" subtitle="Perfil y datos profesionales" />
         
         <div className="about-grid mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
           <motion.div
@@ -84,7 +84,7 @@ const About = () => {
               variants={fadeInUpVariants}
               custom={2}
             >
-              <h3 className="about-title mb-4 text-2xl font-bold">Quien soy</h3>
+              <h3 className="about-title mb-4 text-2xl font-bold">Resumen profesional</h3>
               <p className="about-description mb-6 leading-relaxed text-gray-700 dark:text-gray-300">
                 {aboutData.description}
               </p>
@@ -133,7 +133,7 @@ const About = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Ponte en contacto
+                Contactarme
               </motion.a>
             </motion.div>
           </div>

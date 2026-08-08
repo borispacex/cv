@@ -48,7 +48,7 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
-              Software Developer | Junior DevOps
+              Perfil profesional
             </span>
           </motion.div>
           
@@ -58,14 +58,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Construyendo <span className="text-gradient"> Aplicaciones web, APIs y Sistemas </span> listos para producción
+            Desarrollador Full Stack especializado en <span className="text-gradient">Backend y DevOps</span>
           </motion.h1>
 
           <motion.p
               className="hero-intro text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-lg mb-4"
               {...fadeUp}
           >
-            Soy <span className="text-gradient">Boris Vargas</span>, desarrollador Full Stack con foco en Backend, DevOps y sistemas empresariales.
+            Soy <span className="text-gradient">Boris Vargas</span>, desarrollador de software con experiencia en sistemas para los sectores público, financiero y tecnológico.
           </motion.p>
 
           <motion.p
@@ -74,7 +74,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Diseño soluciones confiables con Java, TypeScript, APIs REST y despliegues automatizados para proyectos de alto impacto.
+            Especializado en Java, TypeScript, APIs REST, microservicios, Docker y automatización de despliegues.
           </motion.p>
           <motion.div
             className="hero-actions flex flex-col sm:flex-row flex-wrap gap-4 mb-8"
@@ -164,7 +164,7 @@ const Hero = () => {
       
       <motion.a
         href="#about"
-        className="hero-scroll absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400"
+        className="hero-scroll absolute bottom-8 left-1/2 flex -translate-x-1/2 transform flex-col items-center justify-center gap-2 text-gray-600 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
@@ -178,8 +178,8 @@ const Hero = () => {
           }
         }}
       >
-        <span className="text-sm font-medium mb-2">Ir Abajo</span>
-        <ChevronDown size={20} />
+        <span className="text-sm font-medium leading-none">Ir abajo</span>
+        <ChevronDown size={20} className="shrink-0" aria-hidden="true" />
       </motion.a>
     </section>
   );

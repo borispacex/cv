@@ -150,16 +150,60 @@
     .hero-scroll span {
       @apply mb-1;
     }
+
+    .experience-section {
+      @apply py-6;
+    }
+
+    .experience-section .container-custom > div:first-child {
+      @apply mb-4;
+    }
+
+    .experience-section .container-custom > div:first-child h2 {
+      @apply mb-2 text-3xl;
+    }
+
+    .experience-section .container-custom > div:first-child p {
+      @apply text-base;
+    }
+
+    .experience-section .container-custom > div:first-child div {
+      @apply mt-3;
+    }
+
+    .experience-list {
+      @apply mt-4;
+    }
+
+    .experience-list > div:last-child > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 0.5rem;
+    }
+
+    .experience-trigger {
+      @apply gap-3 p-3;
+    }
+
+    .experience-icon {
+      @apply h-9 w-9;
+    }
+
+    .experience-trigger span:nth-child(2) > span:first-child {
+      @apply text-base;
+    }
+
+    .experience-trigger span:nth-child(2) > span:last-child {
+      @apply text-xs;
+    }
+
+    .experience-dot {
+      top: 1.25rem;
+    }
   }
 }
 
 /* Custom styles */
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
-}
-
-.custom-cursor {
-  cursor: none;
 }
 
 /* Scrollbar */

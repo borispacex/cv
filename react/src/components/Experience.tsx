@@ -172,7 +172,7 @@ const Experience = () => {
   ];
 
   return (
-      <section id="experience" className="section scroll-mt-24">
+      <section id="experience" className="experience-section section scroll-mt-24">
         <div className="container-custom">
           <SectionHeading
               title="Experiencia laboral"
@@ -180,7 +180,7 @@ const Experience = () => {
           />
 
           <motion.div
-              className="relative mx-auto mt-10 max-w-4xl"
+              className="experience-list relative mx-auto mt-10 max-w-4xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -202,7 +202,7 @@ const Experience = () => {
                 }`}
               >
                 <span
-                  className={`absolute -left-8 top-6 z-10 h-5 w-5 rounded-full border-4 border-white transition-colors dark:border-gray-950 ${
+                  className={`experience-dot absolute -left-8 top-6 z-10 h-5 w-5 rounded-full border-4 border-white transition-colors dark:border-gray-950 ${
                     openExperience === index
                       ? 'bg-primary-500 ring-4 ring-primary-100 dark:ring-primary-950'
                       : 'bg-gray-300 dark:bg-gray-700'
@@ -212,12 +212,12 @@ const Experience = () => {
 
                 <button
                   type="button"
-                  className="flex w-full items-center gap-3 p-4 text-left sm:gap-4 sm:p-5"
+                  className="experience-trigger flex w-full items-center gap-3 p-4 text-left sm:gap-4 sm:p-5"
                   onClick={() => setOpenExperience(openExperience === index ? null : index)}
                   aria-expanded={openExperience === index}
                   aria-controls={`experience-panel-${index}`}
                 >
-                  <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors sm:h-12 sm:w-12 ${
+                  <span className={`experience-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors sm:h-12 sm:w-12 ${
                     openExperience === index
                       ? 'bg-primary-500 text-white'
                       : 'bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400'

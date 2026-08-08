@@ -59,15 +59,15 @@ const educationData: EducationItem[] = [
 
 const Education: React.FC = () => {
 	return (
-		<section id="education" className="py-16 bg-gray-50 dark:bg-gray-900/50 scroll-mt-24">
-			<div className="container px-4 mx-auto">
+		<section id="education" className="section bg-gray-50 dark:bg-gray-900/50 scroll-mt-20 sm:scroll-mt-24">
+			<div className="container-custom">
 				<SectionHeading
 					title="Educación"
 					subtitle="Formación académica"
 				/>
 
 				<motion.div
-					className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mt-8"
+					className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5"
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
@@ -76,7 +76,7 @@ const Education: React.FC = () => {
 					{educationData.map((item) => (
 						<motion.div
 							key={`education-${item.date}`}
-							className="card flex flex-col items-center text-center p-4"
+							className="card flex h-full flex-col items-center p-4 text-center sm:p-5"
 							whileHover={{
 								y: -5,
 								boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)"
@@ -89,8 +89,8 @@ const Education: React.FC = () => {
 
 							{/* Fecha */}
 							<span className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                				{item.date}
-              				</span>
+								{item.date}
+							</span>
 
 							{/* Institución */}
 							<h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug">
@@ -100,16 +100,16 @@ const Education: React.FC = () => {
 							{/* Especialidad */}
 							<span className="text-xs text-primary-600 dark:text-primary-400 mb-2">
 								{item.specialty}
-              				</span>
+							</span>
 
 							{/* Badges */}
-							<div className="flex flex-wrap justify-center gap-2 mt-2">
+							<div className="mt-auto flex flex-wrap justify-center gap-2 pt-2">
 								<span className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-								  {item.degree}
+									{item.degree}
 								</span>
 
 								<span className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-								  {item.details}
+									{item.details}
 								</span>
 							</div>
 

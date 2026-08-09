@@ -9,6 +9,31 @@ const Experience = () => {
 
   const experiences: ExperienceItem[] = [
     {
+      company: "Escuela Militar de Ingeniería (EMI)",
+      logo: `${import.meta.env.BASE_URL}image/companies/emi.png`,
+      position: "Desarrollador de Sistemas II",
+      duration: "Abr 2026 — Actualidad",
+      description: "Desarrollo y mantenimiento de sistemas académicos e institucionales con React, Laravel, Tailwind CSS y PostgreSQL.",
+      achievements: [
+        "Desarrollo y mantenimiento de módulos para sistemas académicos",
+        "Implementación del sistema de correspondencia institucional",
+        "Desarrollo de control de acceso estudiantil con molinetes y tarjetas RFID"
+      ],
+      technologies: [
+        "React",
+        "Laravel",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "JavaScript",
+        "TypeScript",
+        "PHP",
+        "CSS",
+        "APIs REST",
+        "Microservicios",
+        "RFID"
+      ]
+    },
+    {
       company: "Ministerio de Gobierno",
       logo: `${import.meta.env.BASE_URL}image/companies/ministerio-gobierno.png`,
       position: "Técnico I – Desarrollo de Sistemas",
@@ -257,6 +282,8 @@ const Experience = () => {
                       className={`h-full w-full object-contain transition-[filter] ${
                         experience.company.includes('DazaSoftware')
                           ? 'dark:brightness-0 dark:invert'
+                          : experience.company.includes('(EMI)')
+                            ? 'dark:brightness-110'
                           : 'dark:brightness-[0.85]'
                       }`}
                       loading="lazy"

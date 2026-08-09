@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { Mail, MessageCircle, Send } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import emailjs from 'emailjs-com';
 import {FormErrors, FormState} from "../interfaces/contact.type.ts";
@@ -269,12 +269,24 @@ const Contact = () => {
                 <p className="mb-4">
                   ¿Tienes algún proyecto en mente? Actualmente estoy disponible para trabajar.
                 </p>
-                <a
-                    href="mailto:borisvargaspaucara@gmail.com"
-                    className="inline-block px-6 py-2 bg-white text-primary-600 rounded-md font-medium hover:bg-gray-100 transition-colors"
-                >
-                  Inicia una conversación
-                </a>
+                <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                  <a
+                      href="mailto:borisvargaspaucara@gmail.com"
+                      className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium text-primary-600 transition-colors hover:bg-gray-100"
+                  >
+                    <Mail size={17} aria-hidden="true" />
+                    Correo electrónico
+                  </a>
+                  <a
+                      href="https://wa.me/59160514138?text=Hola%20Boris%2C%20vi%20tu%20curr%C3%ADculum%20y%20me%20gustar%C3%ADa%20conversar%20contigo."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-md bg-emerald-500 px-4 py-2 font-medium text-white transition-colors hover:bg-emerald-600"
+                  >
+                    <MessageCircle size={17} aria-hidden="true" />
+                    WhatsApp
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>

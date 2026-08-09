@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Braces, Cloud, Code2, Database, LayoutGrid, Library, Wrench } from 'lucide-react';
+import { Bot, Braces, BrainCircuit, Cloud, Code2, Database, LayoutGrid, Library, Wrench } from 'lucide-react';
 import { DiJava } from 'react-icons/di';
 import {
   SiAngular,
+  SiClaude,
   SiBootstrap,
   SiDjango,
   SiDocker,
@@ -61,6 +62,10 @@ const Skills = () => {
       { name: 'AWS / GCP', level: 70 },
       { name: 'Linux', level: 80 },
     ],
+    ai: [
+      { name: 'OpenAI Codex', level: 85 },
+      { name: 'Claude Code', level: 80 },
+    ],
   };
 
   const allSkills: Skill[] = Object.values(skills).flat();
@@ -88,6 +93,8 @@ const Skills = () => {
     Oracle: { icon: <Database size={21} />, color: 'text-[#F80000]' },
     'AWS / GCP': { icon: <SiGooglecloud size={21} />, color: 'text-[#4285F4]' },
     Linux: { icon: <SiLinux size={21} />, color: 'text-[#FCC624]' },
+    'OpenAI Codex': { icon: <Bot size={21} />, color: 'text-[#10A37F]' },
+    'Claude Code': { icon: <SiClaude size={21} />, color: 'text-[#D97757]' },
   };
 
   const categories = [
@@ -96,6 +103,7 @@ const Skills = () => {
     { id: 'frameworks' as const, name: 'Frameworks', icon: Braces, count: skills.frameworks.length },
     { id: 'libraries' as const, name: 'Bibliotecas', icon: Library, count: skills.libraries.length },
     { id: 'tools' as const, name: 'Herramientas', icon: Wrench, count: skills.tools.length },
+    { id: 'ai' as const, name: 'IA', icon: BrainCircuit, count: skills.ai.length },
   ];
 
   const containerVariants = {

@@ -1,7 +1,9 @@
 import { ArrowUp, Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -21,14 +23,14 @@ const Footer = () => {
             <motion.a
                 href="#about"
                 className="group"
-                aria-label="Ir a la sección Acerca de mí"
+                aria-label={t('footer.aboutLabel')}
             >
               <div className="text-left">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
                   Boris Vargas
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Software Developer | Junior DevOps
+                  {t('about.role')}
                 </p>
               </div>
             </motion.a>
@@ -90,20 +92,20 @@ const Footer = () => {
           <div className="footer-bottom mt-5 flex flex-col items-center justify-between gap-3 sm:flex-row sm:gap-4">
 
             <p className="text-sm text-gray-500 dark:text-gray-400 text-center sm:text-left">
-              © {new Date().getFullYear()} Boris Vargas. Todos los derechos reservados.
+              {t('footer.rights', { year: new Date().getFullYear() })}
             </p>
 
             <motion.button
                 onClick={scrollToTop}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                aria-label="Volver al inicio de la página"
+                aria-label={t('footer.backToTopLabel')}
                 className="flex items-center gap-2 text-sm
             text-gray-600 dark:text-gray-400
             hover:text-primary-500 dark:hover:text-primary-400
             transition-colors"
             >
-              <span>Volver arriba</span>
+              <span>{t('footer.backToTop')}</span>
               <ArrowUp size={16} />
             </motion.button>
 

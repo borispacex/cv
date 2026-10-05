@@ -4,16 +4,18 @@ import { ArrowRight, ExternalLink, Github, Maximize } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import ProjectModal from './ProjectModal';
 import {Category, Project} from "../interfaces/project.type.ts";
+import { useTranslation } from 'react-i18next';
 
 const Projects = () => {
+  const { t, i18n } = useTranslation();
   const [filter, setFilter] = useState<Category>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
   const categories: {id: Category; name: string;}[] = [
-    { id: 'all', name: 'Todos' },
-    { id: 'articles', name: 'Artículos' },
-    { id: 'web', name: 'Web' },
-    { id: 'api', name: 'API' },
+    { id: 'all', name: t('projects.all') },
+    { id: 'articles', name: t('projects.articles') },
+    { id: 'web', name: t('projects.web') },
+    { id: 'api', name: t('projects.api') },
  
   ];
   
@@ -110,9 +112,16 @@ const Projects = () => {
     // },
   ];
 
+  const translatedProjects = i18n.resolvedLanguage === 'en'
+    ? projects.map((project, index) => {
+        const translated = t(`projects.items.${index}`, { returnObjects: true }) as Pick<Project, 'title' | 'description' | 'details' | 'features'>;
+        return { ...project, ...translated };
+      })
+    : projects;
+
   const filteredProjects = filter === 'all'
-      ? projects
-      : projects.filter(project => project.category === filter);
+      ? translatedProjects
+      : translatedProjects.filter(project => project.category === filter);
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -142,8 +151,8 @@ const Projects = () => {
     <section id="projects" className="projects-section section scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
-          title="Mis proyectos"
-          subtitle="Trabajos recientes que he creado"
+          title={t('projects.title')}
+          subtitle={t('projects.subtitle')}
         />
         
         <div className="projects-filter mb-8 mt-8 flex flex-wrap justify-center gap-3">
@@ -195,7 +204,7 @@ const Projects = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center text-gray-900 hover:bg-primary-500 hover:text-white transition-colors"
-                        aria-label="Live Demo"
+                        aria-label={t('projects.liveDemo')}
                       >
                         <ExternalLink size={16} />
                       </a>
@@ -204,7 +213,7 @@ const Projects = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center text-gray-900 hover:bg-primary-500 hover:text-white transition-colors"
-                        aria-label="GitHub Repository"
+                        aria-label={t('projects.repository')}
                       >
                         <Github size={16} />
                       </a>
@@ -212,7 +221,7 @@ const Projects = () => {
                     <button 
                       onClick={() => setSelectedProject(project)}
                       className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center text-gray-900 hover:bg-primary-500 hover:text-white transition-colors"
-                      aria-label="Mas detalles"
+                      aria-label={t('projects.details')}
                     >
                       <Maximize size={16} />
                     </button>
@@ -237,7 +246,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                   className="mt-auto inline-flex items-center self-start font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
                 >
-                  <span>Más detalles</span>
+                  <span>{t('projects.details')}</span>
                   <ArrowRight size={16} className="ml-1" />
                 </button>
               </motion.div>

@@ -3,8 +3,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { CalendarDays, CheckCircle2, ChevronDown, Code2 } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import {ExperienceItem} from "../interfaces/experience.type.ts";
+import { useTranslation } from 'react-i18next';
 
 const Experience = () => {
+  const { t, i18n } = useTranslation();
   const [openExperience, setOpenExperience] = useState<number | null>(null);
 
   const experiences: ExperienceItem[] = [
@@ -203,6 +205,13 @@ const Experience = () => {
     }
   ];
 
+  const translatedExperiences = i18n.resolvedLanguage === 'en'
+    ? experiences.map((experience, index) => {
+        const translated = t(`experience.items.${index}`, { returnObjects: true }) as Pick<ExperienceItem, 'company' | 'position' | 'duration' | 'description' | 'achievements'>;
+        return { ...experience, ...translated };
+      })
+    : experiences;
+
   const getYearLabel = (duration: string) => {
     const years = duration.match(/\d{4}/g) ?? [];
     const firstYear = years[0];
@@ -217,8 +226,8 @@ const Experience = () => {
       <section id="experience" className="experience-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-24">
         <div className="container-custom">
           <SectionHeading
-              title="Experiencia laboral"
-              subtitle="Mi trayectoria profesional"
+              title={t('experience.title')}
+              subtitle={t('experience.subtitle')}
           />
 
           <motion.div
@@ -234,7 +243,7 @@ const Experience = () => {
             />
 
             <div className="space-y-3 pl-10 lg:pl-20">
-            {experiences.map((experience, index) => (
+            {translatedExperiences.map((experience, index) => (
               <article
                 key={`experience-${experience.company}`}
                 className={`relative overflow-visible rounded-xl border bg-white shadow-sm transition-colors dark:bg-gray-900 ${
@@ -337,7 +346,7 @@ const Experience = () => {
                           <div className="lg:col-span-3">
                           <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
                             <CheckCircle2 size={16} className="text-primary-500" aria-hidden="true" />
-                            Logros principales
+                            {t('experience.achievements')}
                           </h4>
                           <ul className="space-y-2">
                             {experience.achievements.map((achievement) => (
@@ -355,7 +364,7 @@ const Experience = () => {
                           <div className="lg:col-span-2">
                           <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
                             <Code2 size={16} className="text-primary-500" aria-hidden="true" />
-                            Tecnologías
+                            {t('experience.technologies')}
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {experience.technologies.map((tech) => (

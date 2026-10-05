@@ -2,29 +2,31 @@ import { motion } from 'framer-motion';
 import {Mail, MapPin, Phone} from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import {AboutData} from "../interfaces/about.type.ts";
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
   const aboutData: AboutData = {
-    image: `${import.meta.env.BASE_URL}image/profile.jpg`,
-    description: `Desarrollador de software con experiencia en el análisis, diseño, implementación y soporte de sistemas empresariales para los sectores público, bancario y fintech. He trabajado con Java, Spring Boot, Quarkus, Angular, .NET, NestJS, PostgreSQL y Oracle.`,
-    bio: `Experiencia en APIs REST, microservicios, integración de servicios y despliegues con Docker, Jenkins y Kubernetes. Me caracterizo por el trabajo colaborativo, la resolución de problemas y la orientación a resultados.`,
+    image: `${import.meta.env.BASE_URL}image/boris-vargas-profile.jpg`,
+    description: t('about.description'),
+    bio: t('about.bio'),
     contactInfo: [
       {
         icon: <Mail size={24} />,
-        title: "Correo electrónico",
+        title: t('about.email'),
         value: "borisvargaspaucara@gmail.com",
         link: "mailto:borisvargaspaucara@gmail.com"
       },
       {
         icon: <Phone size={24} />,
-        title: "Celular",
+        title: t('about.phone'),
         value: "+591 60514138",
         link: "tel:+59160514138"
       },
       {
         icon: <MapPin size={24} />,
-        title: "Dirección",
-        value: " La Paz, Bolivia",
+        title: t('about.address'),
+        value: t('about.location'),
         link: "https://maps.app.goo.gl/ELoUUWX5beygVkr1A",
       }
     ]
@@ -51,7 +53,7 @@ const About = () => {
   return (
     <section id="about" className="about-section section bg-gray-50 dark:bg-gray-900/50 scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
-        <SectionHeading title="Acerca de mí" subtitle="Perfil y datos profesionales" />
+        <SectionHeading title={t('about.title')} subtitle={t('about.subtitle')} />
         
         <div className="about-grid mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
           <motion.div
@@ -64,14 +66,14 @@ const About = () => {
           >
             <img 
               src={aboutData.image}
-              alt="borispacex Portrait"
+              alt={t('about.portrait')}
               className="object-cover object-center w-full h-full"
             />
             
             <div className="absolute inset-0 flex items-end bg-gradient-to-t from-gray-900/80 to-transparent">
               <div className="p-6 text-white">
                 <h3 className="text-2xl font-bold">Boris Vargas</h3>
-                <p className="text-gray-200">Software Developer | Junior Devops</p>
+                <p className="text-gray-200">{t('about.role')}</p>
               </div>
             </div>
           </motion.div>
@@ -84,7 +86,7 @@ const About = () => {
               variants={fadeInUpVariants}
               custom={2}
             >
-              <h3 className="about-title mb-4 text-2xl font-bold">Resumen profesional</h3>
+              <h3 className="about-title mb-4 text-2xl font-bold">{t('about.summary')}</h3>
               <p className="about-description mb-6 leading-relaxed text-gray-700 dark:text-gray-300">
                 {aboutData.description}
               </p>
@@ -98,7 +100,7 @@ const About = () => {
                   <motion.a
                     key={`contact-${item.title}`}
                       href={item.link}
-                      target={item.title === "Dirección" ? "_blank" : undefined}
+                      target={item.link.startsWith('https://') ? "_blank" : undefined}
                       rel="noopener noreferrer"
                       className="about-contact-card card my-2 flex items-start p-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
                       variants={contactVariants}
@@ -133,7 +135,7 @@ const About = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Contactarme
+                {t('about.contact')}
               </motion.a>
             </motion.div>
           </div>

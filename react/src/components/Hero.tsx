@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import {ChevronDown, Facebook, Github, Instagram, Linkedin, Twitter} from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
 
   const fadeUp = {
     initial: { opacity: 0, y: 20 },
@@ -48,7 +50,7 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
-              Perfil profesional
+              {t('hero.badge')}
             </span>
           </motion.div>
           
@@ -58,14 +60,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Desarrollador Full Stack especializado en <span className="text-gradient">Backend y DevOps</span>
+            {t('hero.titleBefore')} <span className="text-gradient">{t('hero.titleHighlight')}</span>
           </motion.h1>
 
           <motion.p
               className="hero-intro text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-lg mb-4"
               {...fadeUp}
           >
-            Soy <span className="text-gradient">Boris Vargas</span>, desarrollador de software con experiencia en sistemas para los sectores público, financiero y tecnológico.
+            {t('hero.introBefore')} <span className="text-gradient">Boris Vargas</span>, {t('hero.introAfter')}
           </motion.p>
 
           <motion.p
@@ -74,7 +76,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Especializado en Java, TypeScript, APIs REST, microservicios, Docker y automatización de despliegues.
+            {t('hero.description')}
           </motion.p>
           <motion.div
             className="hero-actions flex flex-col sm:flex-row flex-wrap gap-4 mb-8"
@@ -90,7 +92,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
-              Descargar CV
+              {t('hero.download')}
             </motion.a>
             <motion.a
               href="#contact"
@@ -98,7 +100,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Contactarme
+              {t('hero.contact')}
             </motion.a>
           </motion.div>
           
@@ -178,7 +180,7 @@ const Hero = () => {
           }
         }}
       >
-        <span className="text-sm font-medium leading-none">Ir abajo</span>
+        <span className="text-sm font-medium leading-none">{t('hero.scroll')}</span>
         <ChevronDown size={20} className="shrink-0" aria-hidden="true" />
       </motion.a>
     </section>

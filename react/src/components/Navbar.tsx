@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import {NavbarProps, NavLink} from "../interfaces/navbar.type.ts";
-
-const navLinks: NavLink[] = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'about', label: 'Acerca de mí' },
-  { id: 'skills', label: 'Habilidades' },
-  { id: 'education', label: 'Educación' },
-  { id: 'projects', label: 'Proyectos' },
-  { id: 'experience', label: 'Experiencia' },
-  { id: 'contact', label: 'Contacto' },
-];
+import { useTranslation } from 'react-i18next';
+import LanguageToggle from './LanguageToggle';
 
 const Navbar: React.FC<NavbarProps> = () => {
+  const { t } = useTranslation();
+  const navLinks: NavLink[] = useMemo(() => [
+    { id: 'inicio', label: t('nav.home') },
+    { id: 'about', label: t('nav.about') },
+    { id: 'skills', label: t('nav.skills') },
+    { id: 'education', label: t('nav.education') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'experience', label: t('nav.experience') },
+    { id: 'contact', label: t('nav.contact') },
+  ], [t]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
@@ -37,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = () => {
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navLinks]);
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
@@ -61,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           <span className="flex flex-col leading-none">
             <span className="text-gradient font-display text-lg font-bold tracking-tight sm:text-xl">Boris Vargas</span>
             <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500 dark:text-gray-400">
-              Currículum Vitae
+              {t('nav.cv')}
             </span>
           </span>
         </motion.a>
@@ -103,16 +105,19 @@ const Navbar: React.FC<NavbarProps> = () => {
         </nav>
         
         {/* Mobile Menu Button */}
+        <div className="ml-auto flex items-center gap-2 lg:ml-0">
+          <LanguageToggle />
         <motion.button
           className="lg:hidden btn btn-outline p-2"
           onClick={toggleMenu}
           whileTap={{ scale: 0.9 }}
-          aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </motion.button>
+        </div>
       </div>
       
       {/* Mobile Navigation */}

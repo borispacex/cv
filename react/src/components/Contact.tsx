@@ -4,8 +4,10 @@ import { Mail, MessageCircle, Send } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import emailjs from 'emailjs-com';
 import {FormErrors, FormState} from "../interfaces/contact.type.ts";
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState<FormState>({
     name: '',
     email: '',
@@ -31,21 +33,21 @@ const Contact = () => {
     const newErrors: FormErrors = {};
     
     if (!formData.name.trim()) {
-      newErrors.name = "Se requiere el nombre";
+      newErrors.name = t('contact.requiredName');
     }
     
     if (!formData.email.trim()) {
-      newErrors.email = "Se requiere Correo electrónico";
+      newErrors.email = t('contact.requiredEmail');
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Formato de Correo electrónico no válido";
+      newErrors.email = t('contact.invalidEmail');
     }
     
     if (!formData.subject.trim()) {
-      newErrors.subject = "Se requiere el Asunto";
+      newErrors.subject = t('contact.requiredSubject');
     }
     
     if (!formData.message.trim()) {
-      newErrors.message = "Se requiere Mensaje";
+      newErrors.message = t('contact.requiredMessage');
     }
     
     setErrors(newErrors);
@@ -112,8 +114,8 @@ const Contact = () => {
     <section id="contact" className="contact-section section scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
-          title="Ponte en contacto"
-          subtitle="Iniciemos una conversación"
+          title={t('contact.title')}
+          subtitle={t('contact.subtitle')}
         />
         
         <div className="contact-layout mt-8 grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-8">
@@ -124,12 +126,12 @@ const Contact = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             <div className="contact-form-card card">
-              <h3 className="contact-form-title mb-5 text-2xl font-bold">Envíame un mensaje</h3>
+              <h3 className="contact-form-title mb-5 text-2xl font-bold">{t('contact.formTitle')}</h3>
               
               <form onSubmit={handleSubmit} className="contact-form grid grid-cols-1 gap-x-4 lg:grid-cols-2">
                 <div className="contact-field mb-4">
                   <label htmlFor="name" className="block text-sm font-medium mb-1">
-                    Tu nombre
+                    {t('contact.name')}
                   </label>
                   <input
                     type="text"
@@ -142,7 +144,7 @@ const Contact = () => {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 dark:border-gray-700 focus:ring-primary-500'
                     } bg-white dark:bg-gray-800 focus:outline-none focus:ring-2`}
-                    placeholder="Nombre"
+                    placeholder={t('contact.namePlaceholder')}
                   />
                   {errors.name && (
                     <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -151,7 +153,7 @@ const Contact = () => {
                 
                 <div className="contact-field mb-4">
                   <label htmlFor="email" className="block text-sm font-medium mb-1">
-                    Tu correo electrónico
+                    {t('contact.email')}
                   </label>
                   <input
                     type="email"
@@ -164,7 +166,7 @@ const Contact = () => {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 dark:border-gray-700 focus:ring-primary-500'
                     } bg-white dark:bg-gray-800 focus:outline-none focus:ring-2`}
-                    placeholder="correo@gmail.com"
+                    placeholder={t('contact.emailPlaceholder')}
                   />
                   {errors.email && (
                     <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -173,7 +175,7 @@ const Contact = () => {
                 
                 <div className="contact-field mb-4 lg:col-span-2">
                   <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                    Asunto
+                    {t('contact.subject')}
                   </label>
                   <input
                     type="text"
@@ -186,7 +188,7 @@ const Contact = () => {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 dark:border-gray-700 focus:ring-primary-500'
                     } bg-white dark:bg-gray-800 focus:outline-none focus:ring-2`}
-                    placeholder="Consulta sobre el curriculum"
+                    placeholder={t('contact.subjectPlaceholder')}
                   />
                   {errors.subject && (
                     <p className="text-red-500 text-sm mt-1">{errors.subject}</p>
@@ -195,7 +197,7 @@ const Contact = () => {
                 
                 <div className="contact-message mb-6 lg:col-span-2">
                   <label htmlFor="message" className="block text-sm font-medium mb-1">
-                    Tu mensaje
+                    {t('contact.message')}
                   </label>
                   <textarea
                     id="message"
@@ -208,7 +210,7 @@ const Contact = () => {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 dark:border-gray-700 focus:ring-primary-500'
                     } bg-white dark:bg-gray-800 focus:outline-none focus:ring-2`}
-                    placeholder="Cuéntame sobre tu consulta ..."
+                    placeholder={t('contact.messagePlaceholder')}
                   ></textarea>
                   {errors.message && (
                     <p className="text-red-500 text-sm mt-1">{errors.message}</p>
@@ -229,7 +231,7 @@ const Contact = () => {
                   ) : (
                     <Send size={18} className="mr-2" />
                   )}
-                  {isSubmitting ? 'Envío ...' : 'Enviar mensaje'}
+                  {isSubmitting ? t('contact.sending') : t('contact.send')}
                 </motion.button>
               </form>
               
@@ -239,7 +241,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  Tu mensaje se ha enviado correctamente. ¡Te responderé pronto!
+                  {t('contact.success')}
                 </motion.div>
               )}
               
@@ -249,7 +251,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  Se produjo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.
+                  {t('contact.error')}
                 </motion.div>
               )}
             </div>
@@ -265,9 +267,9 @@ const Contact = () => {
                 viewport={{ once: true, margin: "-100px" }}
             >
               <div className="contact-cta card bg-gradient-to-br from-primary-600 to-secondary-600 text-white">
-                <h4 className="text-xl font-bold mb-3">Trabajemos juntos</h4>
+                <h4 className="text-xl font-bold mb-3">{t('contact.ctaTitle')}</h4>
                 <p className="mb-4">
-                  ¿Tienes algún proyecto en mente? Actualmente estoy disponible para trabajar.
+                  {t('contact.ctaText')}
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
                   <a
@@ -275,10 +277,12 @@ const Contact = () => {
                       className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium text-primary-600 transition-colors hover:bg-gray-100"
                   >
                     <Mail size={17} aria-hidden="true" />
-                    Correo electrónico
+                    {t('contact.emailAction')}
                   </a>
                   <a
-                      href="https://wa.me/59160514138?text=Hola%20Boris%2C%20vi%20tu%20curr%C3%ADculum%20y%20me%20gustar%C3%ADa%20conversar%20contigo."
+                      href={i18n.resolvedLanguage === 'en'
+                        ? 'https://wa.me/59160514138?text=Hi%20Boris%2C%20I%20saw%20your%20resume%20and%20would%20like%20to%20talk%20with%20you.'
+                        : 'https://wa.me/59160514138?text=Hola%20Boris%2C%20vi%20tu%20curr%C3%ADculum%20y%20me%20gustar%C3%ADa%20conversar%20contigo.'}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-md bg-emerald-500 px-4 py-2 font-medium text-white transition-colors hover:bg-emerald-600"

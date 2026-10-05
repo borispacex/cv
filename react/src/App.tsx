@@ -11,8 +11,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
 import {Theme} from "./interfaces/navbar.type.ts";
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const { i18n, t } = useTranslation();
 
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window === 'undefined') return 'dark';
@@ -31,6 +33,25 @@ function App() {
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    const language = i18n.resolvedLanguage === 'en' ? 'en' : 'es';
+    document.documentElement.lang = language === 'en' ? 'en' : 'es-BO';
+    document.title = t('seo.title');
+
+    const setMeta = (selector: string, content: string) => {
+      document.querySelector<HTMLMetaElement>(selector)?.setAttribute('content', content);
+    };
+
+    setMeta('meta[name="description"]', t('seo.description'));
+    setMeta('meta[property="og:locale"]', language === 'en' ? 'en_US' : 'es_BO');
+    setMeta('meta[property="og:title"]', t('seo.title'));
+    setMeta('meta[property="og:description"]', t('seo.socialDescription'));
+    setMeta('meta[property="og:image:alt"]', t('seo.socialImageAlt'));
+    setMeta('meta[name="twitter:title"]', t('seo.title'));
+    setMeta('meta[name="twitter:description"]', t('seo.socialDescription'));
+    setMeta('meta[name="twitter:image:alt"]', t('seo.socialImageAlt'));
+  }, [i18n.resolvedLanguage, t]);
 
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');

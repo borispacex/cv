@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Github } from 'lucide-react';
 import {Project} from "../interfaces/project.type.ts";
+import { useTranslation } from 'react-i18next';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -9,6 +10,7 @@ interface ProjectModalProps {
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  const { t } = useTranslation();
   const backdropVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 }
@@ -71,7 +73,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <button
               onClick={onClose}
               className="absolute top-4 right-4 w-8 h-8 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-              aria-label="Cerrar detalles del proyecto"
+              aria-label={t('projects.close')}
             >
               <X size={18} />
             </button>
@@ -93,7 +95,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <p className="project-modal-description mb-6 text-gray-700 dark:text-gray-300">{project.details}</p>
             
             <div className="project-modal-features mb-6">
-              <h3 className="text-lg font-semibold mb-3">Características principales</h3>
+              <h3 className="text-lg font-semibold mb-3">{t('projects.features')}</h3>
               <ul className="space-y-2">
                 {project.features.map((feature) => (
                   <li
@@ -114,7 +116,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 className="btn btn-primary"
               >
                 <ExternalLink size={16} className="mr-2" />
-                Demo
+                {t('projects.demo')}
               </a>
               <a 
                 href={project.githubLink}
@@ -123,7 +125,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 className="btn btn-outline"
               >
                 <Github size={16} className="mr-2" />
-                Codigo
+                {t('projects.code')}
               </a>
             </div>
           </div>

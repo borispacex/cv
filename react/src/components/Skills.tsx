@@ -24,10 +24,12 @@ import {
 } from 'react-icons/si';
 import SectionHeading from './SectionHeading';
 import {Category, Skill} from "../interfaces/skill.type.ts";
+import { useTranslation } from 'react-i18next';
 
 type Skills = Record<Exclude<Category, 'all'>, Skill[]>;
 
 const Skills = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<Category>('all');
   
   const skills: Skills = {
@@ -98,12 +100,12 @@ const Skills = () => {
   };
 
   const categories = [
-    { id: 'all' as const, name: 'Todas', icon: LayoutGrid, count: allSkills.length },
-    { id: 'language' as const, name: 'Lenguajes', icon: Code2, count: skills.language.length },
-    { id: 'frameworks' as const, name: 'Frameworks', icon: Braces, count: skills.frameworks.length },
-    { id: 'libraries' as const, name: 'Bibliotecas', icon: Library, count: skills.libraries.length },
-    { id: 'tools' as const, name: 'Herramientas', icon: Wrench, count: skills.tools.length },
-    { id: 'ai' as const, name: 'IA', icon: BrainCircuit, count: skills.ai.length },
+    { id: 'all' as const, name: t('skills.all'), icon: LayoutGrid, count: allSkills.length },
+    { id: 'language' as const, name: t('skills.languages'), icon: Code2, count: skills.language.length },
+    { id: 'frameworks' as const, name: t('skills.frameworks'), icon: Braces, count: skills.frameworks.length },
+    { id: 'libraries' as const, name: t('skills.libraries'), icon: Library, count: skills.libraries.length },
+    { id: 'tools' as const, name: t('skills.tools'), icon: Wrench, count: skills.tools.length },
+    { id: 'ai' as const, name: t('skills.ai'), icon: BrainCircuit, count: skills.ai.length },
   ];
 
   const containerVariants = {
@@ -131,24 +133,24 @@ const Skills = () => {
           : skills[activeCategory];
 
   const getLevelLabel = (level: number) => {
-    if (level >= 85) return 'Avanzado';
-    if (level >= 70) return 'Competente';
-    return 'Intermedio';
+    if (level >= 85) return t('skills.advanced');
+    if (level >= 70) return t('skills.proficient');
+    return t('skills.intermediate');
   };
 
   return (
     <section id="skills" className="section scroll-mt-20 sm:scroll-mt-24">
       <div className="container-custom">
         <SectionHeading 
-          title="Mis habilidades"
-          subtitle="Tecnologías y herramientas de mi stack profesional"
+          title={t('skills.title')}
+          subtitle={t('skills.subtitle')}
         />
         
         <div className="mt-8">
           <div
             className="mb-8 flex flex-wrap justify-center gap-2"
             role="tablist"
-            aria-label="Filtrar habilidades por categoría"
+            aria-label={t('skills.filterLabel')}
           >
             {categories.map((category) => {
               const Icon = category.icon;
@@ -226,7 +228,7 @@ const Skills = () => {
                 <div
                   className="h-1.5 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800"
                   role="progressbar"
-                  aria-label={`Nivel de ${skill.name}`}
+                  aria-label={t('skills.level', { skill: skill.name })}
                   aria-valuemin={0}
                   aria-valuemax={100}
                   aria-valuenow={skill.level}

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 import {EducationItem} from "../interfaces/education.type.ts";
+import { useTranslation } from 'react-i18next';
 
 const educationData: EducationItem[] = [
 	{
@@ -55,12 +56,16 @@ const educationData: EducationItem[] = [
 ];
 
 const Education: React.FC = () => {
+	const { t, i18n } = useTranslation();
+	const translatedEducation = i18n.resolvedLanguage === 'en'
+		? (t('education.items', { returnObjects: true }) as EducationItem[])
+		: educationData;
 	return (
 		<section id="education" className="section bg-gray-50 dark:bg-gray-900/50 scroll-mt-20 sm:scroll-mt-24">
 			<div className="container-custom">
 				<SectionHeading
-					title="Educación"
-					subtitle="Formación académica"
+					title={t('education.title')}
+					subtitle={t('education.subtitle')}
 				/>
 
 				<motion.div
@@ -70,9 +75,9 @@ const Education: React.FC = () => {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
 				>
-					{educationData.map((item) => (
+					{translatedEducation.map((item, index) => (
 						<motion.div
-							key={`education-${item.date}`}
+							key={`education-${index}`}
 							className="card flex h-full flex-col items-center p-4 text-center sm:p-5"
 							whileHover={{
 								y: -5,
@@ -85,7 +90,7 @@ const Education: React.FC = () => {
 									: 'w-12 sm:w-14'
 							}`}>
 								<img
-									src={item.logo}
+									src={educationData[index].logo}
 									alt={`Logo de ${item.institution}`}
 									className={`h-full w-full transition-[filter] dark:brightness-[0.85] ${
 										item.institution.includes('La Salle')
